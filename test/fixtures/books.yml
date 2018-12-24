@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  content: MyText
+  number_of_pages: 1
+  year: 1
+  number_of_books: 1
+
+two:
+  name: MyString
+  content: MyText
+  number_of_pages: 1
+  year: 1
+  number_of_books: 1

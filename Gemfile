@@ -3,7 +3,7 @@ git_source(:github){|repo| "https://github.com/#{repo}.git"}
 ruby "2.5.3"
 gem "bcrypt", "3.1.12"
 gem "bootsnap", ">= 1.1.0", require: false
-gem "bootstrap-sass", "~> 3.3", ">= 3.3.7"
+gem "bootstrap-sass"
 gem "bootstrap-will_paginate"
 gem "carrierwave"
 gem "coffee-rails", "~> 4.2"

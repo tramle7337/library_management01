@@ -1,0 +1,31 @@
+user:
+  name:
+    max_length: 50
+  email:
+    max_length: 255
+  pass:
+    min_length: 6
+book:
+  name:
+    max_length: 30
+  number:
+    min_length: 1
+  content:
+    max_length: 300
+category:
+  name:
+    max_length: 20
+comment:
+  content:
+    max_length: 255
+publisher:
+  name:
+    max_length: 20
+  address:
+    max_length: 50
+user_review:
+  rate:
+    min_length: 1
+    max_length: 5
+  content:
+    max_length: 100
