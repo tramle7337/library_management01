@@ -31,6 +31,101 @@
 
 en:
   hello: "Hello world"
+  base_title: "Library App"
   layouts:
     application:
-      title: "Library Management"
+      title: "Library App"
+    header:
+      library_app: "Library App"
+      home: "Home"
+      help: "Help"
+      users: "Users"
+      account: "Account"
+      profile: "Profile"
+      settings: "Settings"
+      logout: "Log out"
+      login: "Log in"
+      book: "Books"
+      author: "Authors"
+      publisher: "Publishers"
+    footer:
+      about: "About"
+      contact: "Contact"
+      help: "Help"
+      the: "The"
+      href1: "http://www.librarymanagement.org/"
+      href1_detail: "Library Management"
+      by: "by"
+      href2: "http://www.team1.com/"
+      href2_detail: "Team 1 - DN18"
+  helpers:
+    label:
+      user: #model
+        name: "Name"
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Confirmation"
+      session:
+        email: "Email"
+        password: "Password"
+        active: "Account activated!"
+  users:
+    show:
+      error: "This user could not be found"
+    create:
+      welcome: "Welcome to Library App"
+    update:
+      success: "Profile updated"
+    edit:
+      title: "Edit user"
+      login: "Please log in."
+      update: "Update your profile"
+      save: "Save changes"
+      change: "change"
+    user:
+      delete: "delete"
+      confirm: "You sure?"
+    destroy:
+      success: "User deleted"
+      failed: "Failed! User can't be deleted"
+    index:
+      admin: "Admin"
+      user: "User"
+      all: "All"
+      search: "Search"
+      title: "All users"
+    new:
+      sign_up: "Sign up"
+      announce_new_html: "This will be a signup page for new users."
+      create_account: "Create my account"
+  static_pages:
+    home:
+      welcome: "Welcome to the Library App"
+      intro: "This is the home page for the Library App"
+      sign_up: "Sign up now!"
+    about:
+      title: "About"
+      library_app: "Library App"
+    contact:
+      title: "Contact"
+    help:
+      title: "Help"
+  shared:
+    form: "The form contains %{error_list}"
+    error:
+      one: "1 error"
+      other: "%{count} errors"
+  sessions:
+    new:
+      login: "Log In"
+      password: "Password"
+      sign_up: "Sign up now!"
+      new_user: "New user?"
+      remember_me: "Remember me on this computer"
+      forgot: "(forgot password)"
+    create:
+      success_message: "You've been logged in successfully"
+      error: "Invalid email/password combination"
+      inactivated: "Account not activated. Check your email for the activation link."
+    destroy:
+      logout: "You've been logged out"
