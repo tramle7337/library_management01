@@ -29,3 +29,8 @@ user_review:
     max_length: 5
   content:
     max_length: 100
+gravatar:
+  big_size: 80
+  small_size: 50
+paginate:
+  per_page: 20
