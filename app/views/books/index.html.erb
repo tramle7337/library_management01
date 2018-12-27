@@ -1,3 +1,5 @@
+<% provide :title, t(".title") %>
+
 <div class="center jumbotron">
   <h1><%= t(".welcome") %></h1>
 
@@ -5,3 +7,11 @@
 
   <%= link_to t(".sign_up"), signup_path, class: "btn btn-lg btn-primary" %>
 </div>
+
+<%= will_paginate %>
+
+<ul class="books">
+  <%= render @books %>
+</ul>
+
+<%= will_paginate %>

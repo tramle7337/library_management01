@@ -47,7 +47,15 @@ en:
       login: "Log in"
       book: "Books"
       author: "Authors"
+      show_authors: "Show Authors"
+      new_authors: "New Author"
       publisher: "Publishers"
+      show_publishers: "Show Publishers"
+      new_publishers: "New Publisher"
+      categories: "Category"
+      show_categories: "Show Categories"
+      new_categories: "New Categories"
+
     footer:
       about: "About"
       contact: "Contact"
@@ -69,6 +77,24 @@ en:
         email: "Email"
         password: "Password"
         active: "Account activated!"
+      book:
+        name: "Name"
+        content: "Content"
+        number_of_pages: "Number of pages"
+        year: "Year"
+        number_of_books: "Number of books"
+        authors: "Author"
+        categories: "Category"
+        publishers: "Publisher"
+      author:
+        name: "Name"
+        profile: "Profile"
+      category:
+        name: "Name"
+        parent_name: "Parent Name"
+      publisher:
+        name: "Name"
+        address: "Address"
   users:
     show:
       error: "This user could not be found"
@@ -129,3 +155,80 @@ en:
       inactivated: "Account not activated. Check your email for the activation link."
     destroy:
       logout: "You've been logged out"
+  authors:
+    show:
+      error: "This author could not be found"
+    update:
+      profile_updated: "Profile Updated"
+    create:
+      create_success: "Create Author Success"
+    new:
+      title: "Create Author"
+    index:
+      title: "Authors List"
+    create_book:
+      create_success: "Create Success"
+    edit:
+      title: "Author"
+      profile_updated: "Profile Updated"
+      error: "This author could not be found"
+    update:
+      update: "Author was updated successfully"
+      error: "This author could not be found"
+      select: "Please select parent of this author"
+    update: "Update"
+  books:
+    new:
+      title: "Create Book"
+      create: "Create Book"
+    index:
+      title: "Book"
+    create_book:
+      create_success: "Create Success"
+    edit:
+      title: "Book"
+      profile_updated: "Profile Updated"
+      error: "This book could not be found"
+    update: "Update"
+    update:
+      update: "Book was updated successfully"
+      error: "This book could not be found"
+      select: "Please select parent of this book"
+  categories:
+    show:
+      error: "This category could not be found"
+    new:
+      title: "Create Categorie"
+      select: "Please select parent of this category"
+    index:
+      title: "Categories"
+    create:
+      create_success: "Category was created successfully"
+    edit:
+      title: "Category"
+      profile_updated: "Profile Updated"
+      update: "Update"
+      error: "This category could not be found"
+      select: "Please select parent of this category"
+    update:
+      update: "Category was updated successfully"
+      error: "This category could not be found"
+
+  publishers:
+    show:
+      error: "This publisher could not be found"
+    new:
+      title: "Create Publisher"
+    index:
+      title: "Publishers"
+    create:
+      create_success: "Publisher was created successfully"
+    edit:
+      title: "Publishers"
+      profile_updated: "Profile Updated"
+      edit_publisher: "Update Publisher"
+      update: "Update"
+      error: "This publisher could not be found"
+    update:
+      updated: "Publisher was updated successfully"
+      error: "This publisher could not be found"

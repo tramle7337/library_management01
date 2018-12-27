@@ -1,0 +1,10 @@
+<%= form_for @author do |f| %>
+  <%= render "shared/error_authors_new", object: @author %>
+  <%= f.label :name %>
+  <%= f.text_field :name, class: "form-control" %>
+
+  <%= f.label :profile %>
+  <%= f.text_field :profile, class: "form-control" %>
+
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>
