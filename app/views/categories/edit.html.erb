@@ -1,18 +1,9 @@
 <% provide :title, t(".title") %>
-<h1><%= t (".update_category") %></h1>
+<% provide :button_text, t(".update") %>
+<h1><%= t ".title" %></h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for @category do |f| %>
-      <%= render "shared/error_categories_new", object: @category %>
-
-      <%= f.label :name %>
-      <%= f.text_field :name, class: "form-control" %>
-
-      <%= f.label :parent_name %>
-      <%= f.collection_select :parent_id, get_categories(:name), :id, :name, prompt: t("categories.edit.select") %>
-
-      <%= f.submit t(".update"), class: "btn btn-primary" %>
-  <% end %>
+    <%= render "form" %>
   </div>
 </div>

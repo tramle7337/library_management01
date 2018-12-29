@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-md-12">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="text-justify active" width="30%"><%= t ".name" %></th>
+          <th class="text-center active" width="25%"><%= t ".author" %></th>
+          <th class="text-center active" width="25%"><%= t ".publisher" %></th>
+          <% if current_user.admin? %>
+            <th class="text-right active"><%= t ".action" %></th>
+          <% end %>
+        </tr>
+      </thead>
+    </table>
+  </div>
+</div>
+
+<% @books.each do |book| %>
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-hover">
+      <tr>
+        <td class="text-justify" width="30%"><%= link_to book.name, book %></td>
+        <td class="text-center" width="24%"><%= book.author.name %></td>
+        <td class="text-center" width="24%"><%= book.publisher.name %></td>
+        <% if current_user.admin? %>
+          <td class="text-right">
+            <%= link_to t(".delete"), admin_book_path(book), method: :delete,
+            data: {confirm: t(".confirm")} %>
+            | <%= link_to t(".edit"), edit_admin_book_path(book) %>
+          </td>
+        <% end %>
+      </tr>
+    </table>
+  </div>
+</div>
+<% end %>

@@ -1,8 +1,39 @@
-<li>
-  <%= gravatar_for user, size: Settings.gravatar.small_size %>
-  <%= link_to user.name, user %>
-  <% if current_user.admin? && !current_user?(user) %>
-    | <%= link_to t(".delete"), user, method: :delete,
-      data: {confirm: t(".confirm")} %>
-  <% end %>
-</li>
+<div class="row">
+  <div class="col-md-8">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="active" width="30%"><%= t ".avatar" %></th>
+          <th class="text-center active" width="40%"><%= t ".name" %></th>
+          <% if current_user.admin? && !current_user?(@users) %>
+            <th class="text-right active"><%= t ".action" %></th>
+          <% end %>
+        </tr>
+      </thead>
+    </table>
+  </div>
+</div>
+
+<% @users.each do |user| %>
+  <div class="row">
+    <div class="col-md-8">
+      <table class="table table-hover">
+        <tr>
+          <td class="gravatar_size">
+            <%= gravatar_for user, size: Settings.gravatar.small_size %>
+          </td>
+          <td class="text-center name_width">
+            <%= link_to user.name, user %>
+          </td>
+          <% if current_user.admin? && !current_user?(user) %>
+            <td class="text-right">
+              <%= link_to t(".delete"), user, method: :delete,
+                data: {confirm: t(".confirm")} %>
+            </td>
+          <% end %>
+        </tr>
+      </table>
+    </div>
+  </div>
+<% end %>
+

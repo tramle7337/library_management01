@@ -1,0 +1,28 @@
+<div class="col-md-4">
+  <div class="panel panel-default" align="center">
+    <div class="panel-heading"><%= link_to book.name, book %></div>
+    <div class="panel-body">
+      <p><%= t(".category", category: book.category.name) %></p>
+      <p><%= t(".author", author: book.author.name) %></p>
+      <p><%= t(".publisher", publisher: book.publisher.name) %></p>
+      <% if book.number_of_books.zero? %>
+        <p class="stock"><%= t(".status", status: t(".status_out_of_stock")) %></p>
+      <% else %>
+        <p class="stock"><%= t(".status", status: t(".status_in_stock")) %></p>
+      <% end %>
+      <p class="num_of_book"><%= t(".num_of_book", num_of_book: book.number_of_books) %></p>
+      <p class="num_of_page"><%= t(".num_of_page", num_of_page: book.number_of_pages) %></p>
+    </div>
+    <div class="panel-footer">
+      <%= form_for request_detail, remote: true do |f| %>
+        <%= f.hidden_field :number, value: 1 %>
+        <%= f.hidden_field :book_id, value: book.id %>
+        <% if book.number_of_books.zero? %>
+          <%= f.submit t(".borrow"), class: "btn btn-primary", disabled: true %>
+        <% else %>
+          <%= f.submit t(".borrow"), class: "btn btn-primary" %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,5 @@
 <%= form_for @author do |f| %>
-  <%= render "shared/error_authors_new", object: @author %>
+  <%= render "shared/error_messages", object: @author %>
   <%= f.label :name %>
   <%= f.text_field :name, class: "form-control" %>
 

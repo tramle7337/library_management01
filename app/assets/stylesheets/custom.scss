@@ -7,6 +7,11 @@ $gray-light: #777;
 $gray-medium-light: #eaeaea;
 $gray-darker: #222;
 $gray-white: #e8e8e8;
+$white: #fff;
+$green: green;
+$blue: blue;
+$red: red;
+$blue: blue;
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -65,20 +70,20 @@ p {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: #fff;
+  color: $white;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
   &:hover {
-    color: #fff;
+    color: $white;
     text-decoration: none;
   }
 }
 
 /* footer */
 footer {
-  margin-top: 45px;
+  margin-top: 70px;
   padding-top: 5px;
   border-top: 1px solid $gray-medium-light;
   color: $gray-light;
@@ -147,7 +152,7 @@ aside {
 }
 
 /* forms */
-input, textarea, select, .uneditable-input {
+textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
   margin-bottom: 15px;
@@ -156,6 +161,12 @@ input, textarea, select, .uneditable-input {
 
 input {
   height: auto !important;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.btn-group input{
+  width: auto !important;
 }
 
 #error_explanation {
@@ -174,13 +185,84 @@ input {
 }
 
 /* Users index */
-
 .users {
   list-style: none;
   margin: 0;
   li {
     overflow: auto;
-    padding: 10px 0;
+    padding: 15px 0;
     border-bottom: 1px solid $gray-lighter;
+    text-align: justify;
   }
+}
+
+/* Book row */
+.num_of_page {
+  color: green;
+}
+
+.btn-right {
+  float: right !important;
+}
+
+.book_name {
+  color: $green;
+}
+
+.number_book {
+  color: $blue;
+  text-align: center;
+}
+
+.number_book_th {
+  text-align: center;
+}
+
+.status {
+  color: $green;
+}
+
+._status {
+  width: 11%;
+}
+
+.num_of_book {
+  color: $blue;
+}
+
+.request {
+  border-bottom: 1px solid $gray-lighter;
+  text-align: left;
+  th {
+    text-align: left;
+  }
+}
+
+.inline {
+  width: 48% !important;
+  text-align: center !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.note {
+  width: 4%;
+}
+
+.name_user {
+  width: 10%;
+}
+
+.stock {
+  color: $red;
+}
+
+.gravatar_width {
+  width: "30%";
+}
+
+.name_width {
+  width: "40%";
 }

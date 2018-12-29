@@ -1,0 +1,16 @@
+<h1><%= t(".request_detail") %></h1>
+<table class="table">
+  <tr class="active">
+    <th><%= t(".id") %></th>
+    <th><%= t(".name") %></th>
+    <th class="number_book_th"><%= t(".number") %></th>
+  </tr>
+  <% @request_details.each do |request_detail| %>
+    <tr>
+      <td><%= request_detail.book.id %></td>
+      <td class="book_name"><%= request_detail.book.name %></td>
+      <td class="number_book"><%= request_detail.number %></td>
+    </tr>
+  <% end %>
+</table>
+

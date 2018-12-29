@@ -1,11 +1,12 @@
 <%= form_for @category do |f| %>
-  <%= render "shared/error_categories_new", object: @category %>
+  <%= render "shared/error_messages", object: @category %>
 
   <%= f.label :name %>
   <%= f.text_field :name, class: "form-control" %>
 
-  <%= f.label :parent_name %>
-  <%= f.collection_select :id, get_categories(:name), :id, :name, prompt: t("categories.new.select") %>
+  <%= f.label :parent_category %>
+  <%= f.collection_select :parent_id, get_categories(:name), :id, :name,
+    {prompt: t(".select")} %>
 
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>

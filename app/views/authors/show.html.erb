@@ -1,10 +1,14 @@
-<% provide(:title, @author.name) %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= @author.name %>
-      </h1>
-    </section>
-  </aside>
+<% provide :title, @author.name %>
+<div id="notice"></div>
+<h1><%= @author.name %></h1>
+
+<div class="container">
+  <dl>
+    <dt><%= t(".name") %></dt><dd><%= @author.name %></dd><br>
+    <dt><%= t(".detail") %></dt><dd><%= @author.profile %></dd>
+  </dl>
+
+  <%= link_to t(".edit"), edit_author_path(@author) %>
+  <%= link_to t(".delete"), @author,
+  method: :delete, data: { confirm: t(".confirm") } %>
 </div>
