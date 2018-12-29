@@ -41,4 +41,13 @@ class User < ApplicationRecord
            end
     BCrypt::Password.create(string, cost: cost)
   end
+
+  def self.to_xsl options = {}
+    CSV.generate(options) do |csv|
+      csv << column_names
+      all.each do |user|
+        csv << user.attributes.values_at(*column_names)
+      end
+    end
+  end
 end

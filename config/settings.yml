@@ -7,23 +7,26 @@ user:
     min_length: 6
 book:
   name:
-    max_length: 30
-  number:
-    min_length: 1
+    max_length: 50
   content:
     max_length: 300
+  page:
+    min_num: 0
+  year:
+    min_num: 999
+  num_book:
+    min_num: 0
 category:
   name:
     max_length: 20
-authors:
 comment:
   content:
     max_length: 255
 publisher:
   name:
-    max_length: 20
-  address:
     max_length: 50
+  address:
+    max_length: 100
 user_review:
   rate:
     min_length: 1

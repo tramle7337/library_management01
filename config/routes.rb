@@ -11,13 +11,22 @@ Rails.application.routes.draw do
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
-  get "/newcategories", to: "categories#new"
-  get "/categories", to: "categories#index"
-  get "/newpublishers", to: "publishers#new"
-  get "/publishers", to: "publishers#index"
-  get "/newauthors", to: "authors#new"
-  get "/authors", to: "authors#index"
-  get "/newbook", to: "books#new"
   resources :users
-  resources :books, :authors, :publishers, :categories
+  resources :books
+  resources :authors
+  resources :publishers
+  resources :categories
+  resources :requests do
+    member do
+      get "accept_request"
+      patch "deny_request"
+    end
+  end
+  resources :request_details, only: [:create, :update, :destroy]
+  resource :cart, only: [:show]
+
+  namespace :admin do
+    resources :books
+    resources :requests
+  end
 end
