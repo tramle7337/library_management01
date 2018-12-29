@@ -1,0 +1,7 @@
+<% if @success.present? %>
+  $('#status-request-<%= @request.id %>').html("<%= @request.status %>");
+  $('#action-request-<%= @request.id %>').html('<%= j (render "requests/action", locals: {request: @request}) %>');
+  $('#note-request-<%= @request.id %>').html("<%= @request.note %>");
+  $('#denyModal').modal('hide');
+  $('.modal-body-deny-form-request').html('');
+<% end %>

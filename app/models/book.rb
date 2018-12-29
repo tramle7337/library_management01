@@ -13,8 +13,15 @@ class Book < ApplicationRecord
   validates :content, :category, presence: true,
     length: {maximum: Settings.book.content.max_length}
   validates :number_of_pages, presence: true,
-    length: {minimum: Settings.book.number.min_length}
-  validates :year, presence: true
+    numericality: {only_integer: true, greater_than: Settings.book.page.min_num}
+  validates :year, presence: true,
+    numericality: {only_integer: true, greater_than: Settings.book.year.min_num}
   validates :number_of_books, presence: true,
-    length: {minimum: Settings.book.number.min_length}
+    numericality: {
+      only_integer: true, greater_than: Settings.book.num_book.min_num
+    }
+
+  scope :newest, ->{order created_at: :DESC}
+  scope :_page,
+    ->(page){paginate page: page, per_page: Settings.paginate.per_page}
 end

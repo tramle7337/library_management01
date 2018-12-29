@@ -1,9 +1,9 @@
 class CategoriesController < ApplicationController
-  before_action :load_category, only: %i(show edit update)
+  before_action :load_category, except: %i(new create index)
+  before_action :is_admin?, only: %i(edit destroy)
 
   def index
-    @categories = Category.paginate page: params[:page],
-      per_page: Settings.paginate.per_page
+    @categories = Category._page params[:page]
   end
 
   def new
@@ -24,15 +24,23 @@ class CategoriesController < ApplicationController
   def show; end
 
   def create
-
     @category = Category.new category_params
     @category.parent_id = params[:category][:id]
     if @category.save
-      flash[:success] = t ".create_success"
-      redirect_to root_path
+      flash[:success] = t ".success"
+      redirect_to categories_path
     else
       render :new
     end
+  end
+
+  def destroy
+    if @category.destroy
+      flash[:success] = t ".success"
+    else
+      flash[:danger] = t ".failed"
+    end
+    redirect_to categories_path
   end
 
   private
@@ -41,7 +49,7 @@ class CategoriesController < ApplicationController
     @category = Category.find_by id: params[:id]
     return if @category
     flash[:danger] = t ".error"
-    redirect_to root_path
+    redirect_to categories_path
   end
 
   def category_params

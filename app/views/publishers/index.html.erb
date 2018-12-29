@@ -1,10 +1,15 @@
 <% provide :title, t(".title") %>
-<h1><%= t(".title")%></h1>
+<h1><%= t ".title" %></h1><hr>
+
+<%= link_to new_publisher_path, class: "btn btn-primary" do %>
+  <span class="glyphicon glyphicon-plus">&nbsp;<%= t(".new") %></span>
+<% end %>
+<hr>
+</br>
 
 <%= will_paginate %>
 
-<ul class="publishers">
-  <%= render @publishers %>
-</ul>
+<%= render "publisher" %>
 
 <%= will_paginate %>
+

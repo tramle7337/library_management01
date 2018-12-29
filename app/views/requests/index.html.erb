@@ -1,0 +1,42 @@
+<% provide :title, t(".title") %>
+<h1><%= t ".title" %></h1>
+
+<ul class="users">
+  <table class="table table-hover request container-fluid">
+    <tr class="active">
+      <th><%= t(".request_id") %></th>
+      <th class="name_user"><%= t(".name") %></th>
+      <th><%= t(".from") %></th>
+      <th><%= t(".to") %></th>
+      <th><%= t(".total_book") %></th>
+      <th class="_status"><%= t(".status") %></th>
+      <th><%= t(".day") %></th>
+      <th class="text-center"><%= t(".action") %></th>
+      <th class="text-center note"><%= t(".note") %></th>
+    </tr>
+    <% if current_user.admin? %>
+        <%= render @requests %>
+    <% else %>
+      <%= render "requests/request_user" %>
+    <% end %>
+  </table>
+</ul>
+
+<!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#denyModal">Open Modal</button>
+ -->
+<!-- Modal -->
+<div id="denyModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Reason why you deny?</h4>
+      </div>
+      <div class="modal-body modal-body-deny-form-request">
+      </div>
+    </div>
+
+  </div>
+</div>

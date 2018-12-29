@@ -1,9 +1,9 @@
 class AuthorsController < ApplicationController
-  before_action :load_author, only: %i(show edit update)
+  before_action :load_author, except: %i(new create index)
+  before_action :is_admin?, only: %i(edit destroy)
 
   def index
-    @authors = Author.paginate page: params[:page],
-      per_page: Settings.paginate.per_page
+    @authors = Author.alphabet._page params[:page]
   end
 
   def new
@@ -14,7 +14,7 @@ class AuthorsController < ApplicationController
 
   def update
     if @author.update_attributes author_params
-      flash[:success] = t ".profile_updated"
+      flash[:success] = t ".updated"
       redirect_to @author
     else
       render :edit
@@ -26,11 +26,20 @@ class AuthorsController < ApplicationController
   def create
     @author = Author.new author_params
     if @author.save
-      flash[:success] = t ".create_success"
+      flash[:success] = t ".success"
       redirect_to @author
     else
       render :new
     end
+  end
+
+  def destroy
+    if @author.destroy
+      flash[:success] = t ".success"
+    else
+      flash[:danger] = t ".failed"
+    end
+    redirect_to authors_path
   end
 
   private
@@ -38,8 +47,8 @@ class AuthorsController < ApplicationController
   def load_author
     @author = Author.find_by id: params[:id]
     return if @author
-    flash[:danger] = t "authors.load_author.error_message"
-    redirect_to root_path
+    flash[:danger] = t ".error"
+    redirect_to authors_path
   end
 
   def author_params

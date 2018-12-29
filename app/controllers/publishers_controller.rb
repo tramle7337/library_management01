@@ -1,5 +1,6 @@
 class PublishersController < ApplicationController
-  before_action :load_publisher, only: %i(show edit update)
+  before_action :load_publisher, except: %i(new create index)
+  before_action :is_admin?, only: %i(edit destroy)
 
   def index
     @publishers = Publisher.paginate page: params[:page],
@@ -31,6 +32,15 @@ class PublishersController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    if @publisher.destroy
+      flash[:success] = t ".success"
+    else
+      flash[:danger] = t ".failed"
+    end
+    redirect_to publishers_path
   end
 
   private

@@ -1,0 +1,32 @@
+<%= form_for @book, url: yield(:url) do |f| %>
+  <%= render "shared/error_messages", object: @book %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name, class: "form-control" %>
+
+  <%= f.label :content %>
+  <%= f.text_field :content, class: "form-control" %>
+
+  <%= f.label :number_of_pages %>
+  <%= f.text_field :number_of_pages, class: "form-control" %>
+
+  <%= f.label :year %>
+  <%= f.text_field :year, class: "form-control" %>
+
+  <%= f.label :number_of_books %>
+  <%= f.text_field :number_of_books, class: "form-control" %>
+
+  <%= f.label :author %>
+  <%= f.collection_select :author_id, get_authors(:name), :id, :name,
+    {prompt: t(".choose_author")} %>
+
+  <%= f.label :category %>
+  <%= f.collection_select :category_id, get_categories(:name), :id, :name,
+    {prompt: t(".choose_category")} %>
+
+  <%= f.label :publisher %>
+  <%= f.collection_select :publisher_id, get_publishers(:name), :id, :name,
+    {prompt: t(".choose_publisher")} %>
+
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>

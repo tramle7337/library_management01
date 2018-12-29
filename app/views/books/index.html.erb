@@ -1,17 +1,12 @@
-<% provide :title, t(".title") %>
+<%= render template: "static_pages/home" %>
 
-<div class="center jumbotron">
-  <h1><%= t(".welcome") %></h1>
+<h3 class="text-center"><b><%= t ".title" %></b></h3>
 
-  <h2><%= t(".intro") %></h2>
-
-  <%= link_to t(".sign_up"), signup_path, class: "btn btn-lg btn-primary" %>
+<div class="container">
+  <div class="row">
+    <% @books.each do |book| %>
+      <%= render "book_row", book: book, request_detail: @request_detail %>
+    <% end %>
+  </div>
+  <%= will_paginate %>
 </div>
-
-<%= will_paginate %>
-
-<ul class="books">
-  <%= render @books %>
-</ul>
-
-<%= will_paginate %>

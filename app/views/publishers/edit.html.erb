@@ -1,18 +1,9 @@
 <% provide :title, t(".title") %>
-<h1><%= t (".edit_publisher") %></h1>
+<% provide :button_text, t(".update") %>
+<h1><%= t ".title" %></h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for @publisher do |f| %>
-        <%= render "shared/error_publishers_new", object: @publisher %>
-
-        <%= f.label :name %>
-        <%= f.text_field :name, class: "form-control" %>
-
-        <%= f.label :address %>
-        <%= f.text_field :address, class: "form-control" %>
-
-        <%= f.submit t(".update"), class: "btn btn-primary" %>
-  <% end %>
+    <%= render "form" %>
   </div>
 </div>
