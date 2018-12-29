@@ -1,0 +1,25 @@
+<% provide :title, t(".title") %>
+<h1><%= t(".title") %></h1><hr>
+
+<%= link_to new_admin_book_path, class: "btn btn-primary" do %>
+  <span class="glyphicon glyphicon-plus">&nbsp;<%= t(".new") %></span>
+<% end %>
+<hr>
+
+<div>
+  <%= t ".download" %>
+  <%= link_to t(".excel"), admin_books_path(format: "xls") %>
+</div><br>
+
+<div class="input-group search_inline">
+  <%= form_tag(admin_books_path, method: :get) do %>
+    <%= text_field_tag :search, params[:search],
+    placeholder: t(".search"), class: "form-control search_input" %>
+    <%= submit_tag t(".button_search"), name: nil,
+    class: "btn btn-primary btn_search" %><i class="fa fa-search fa-fw"></i>
+  <% end %>
+</div><hr>
+
+<%= render "book" %>
+
+<%= will_paginate %>

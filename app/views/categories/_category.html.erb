@@ -1,4 +1,41 @@
-<li>
-  <%= link_to category.name, category %>
-  | <%= link_to t(".edit"), edit_category_path(category) %>
-</li>
+<div class="row">
+  <div class="col-md-12">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="active" width="30%"><%= t ".name" %></th>
+          <th class="text-center active" width="40%"><%= t ".parent_category" %></th>
+          <% if current_user.admin? %>
+            <th class="text-right active"><%= t ".action" %></th>
+          <% end %>
+        </tr>
+      </thead>
+    </table>
+  </div>
+</div>
+
+<% @categories.each do |category| %>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-hover">
+        <tr>
+          <td width="30%">
+            <%= link_to category.name, category %>
+          </td>
+          <td class="text-center" width="40%">
+            <% if !category.parent_id.nil? %>
+              <%= find_category(category.parent_id).name %>
+            <% end %>
+          </td>
+          <% if current_user.admin? %>
+          <td class="text-right">
+            <%= link_to t(".delete"), category,
+              method: :delete, data: {confirm: t(".confirm")} %>
+              | <%= link_to t(".edit"), edit_category_path(category) %>
+          </td>
+          <% end %>
+        </tr>
+      </table>
+    </div>
+  </div>
+<% end %>

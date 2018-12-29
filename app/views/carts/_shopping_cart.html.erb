@@ -1,0 +1,14 @@
+<hr>
+<% if @request_details.size == 0 %>
+  <p class="text-center">
+    <h1><%= t(".empty_1") %><%= link_to "go back", root_path %>
+      <%= t(".empty_2") %></h1>
+  </p>
+<% else %>
+  <h1><%= t(".title") %></h1><hr>
+  <% @request_details.each do |request_detail| %>
+    <%= render "carts/cart_row", book: request_detail.book,
+      request_detail: request_detail, show_total: true %>
+  <% end %>
+  <p><%= link_to t(".confirm"), edit_request_path(current_request), class: "btn btn-primary btn-right" %></p>
+<% end %>
