@@ -47,15 +47,9 @@ en:
       login: "Log in"
       book: "Books"
       author: "Authors"
-      show_authors: "Show Authors"
-      new_authors: "New Author"
       publisher: "Publishers"
-      show_publishers: "Show Publishers"
-      new_publishers: "New Publisher"
-      categories: "Category"
-      show_categories: "Show Categories"
-      new_categories: "New Categories"
-
+      category: "Categories"
+      manage_request: "Manage Requests"
     footer:
       about: "About"
       contact: "Contact"
@@ -78,30 +72,36 @@ en:
         password: "Password"
         active: "Account activated!"
       book:
-        name: "Name"
-        content: "Content"
+        name: "Name of Book"
+        content: "Content of Book"
         number_of_pages: "Number of pages"
-        year: "Year"
+        year: "Year of release"
         number_of_books: "Number of books"
-        authors: "Author"
-        categories: "Category"
-        publishers: "Publisher"
+        author: "Author"
+        category: "Category"
+        publisher: "Publisher"
       author:
-        name: "Name"
-        profile: "Profile"
+        name: "Name of Author"
+        profile: "Profile of Author"
       category:
-        name: "Name"
-        parent_name: "Parent Name"
+        name: "Name of Category"
+        parent_category: "Parent Category"
       publisher:
-        name: "Name"
-        address: "Address"
+        name: "Name of Publisher"
+        address: "Address of Publisher"
+      request:
+        from_day: "From day"
+        to_day: "To day"
+      popup_deny:
+        note: "Note1"
   users:
     show:
       error: "This user could not be found"
     create:
       welcome: "Welcome to Library App"
     update:
-      success: "Profile updated"
+      success: "Profile was updated successfully"
+      failed: "Failed! Profile can't be updated"
     edit:
       title: "Edit user"
       login: "Please log in."
@@ -109,17 +109,23 @@ en:
       save: "Save changes"
       change: "change"
     user:
+      avatar: Avatar
+      name: "Name of User"
+      action: "Action"
       delete: "delete"
       confirm: "You sure?"
     destroy:
-      success: "User deleted"
-      failed: "Failed! User can't be deleted"
+      success: "User was deleted successfully"
+      failed: "Failed! This user can't be deleted"
     index:
       admin: "Admin"
       user: "User"
       all: "All"
       search: "Search"
       title: "All users"
+      download: "Download"
+      excel: "Excel"
+      login: "Please login to access!"
     new:
       sign_up: "Sign up"
       announce_new_html: "This will be a signup page for new users."
@@ -127,7 +133,7 @@ en:
   static_pages:
     home:
       welcome: "Welcome to the Library App"
-      intro: "This is the home page for the Library App"
+      intro: "Let's borrow books you like most!"
       sign_up: "Sign up now!"
     about:
       title: "About"
@@ -158,77 +164,216 @@ en:
   authors:
     show:
       error: "This author could not be found"
-    update:
-      profile_updated: "Profile Updated"
     create:
-      create_success: "Create Author Success"
+      success: "The author was created successfully"
     new:
-      title: "Create Author"
+      title: "Create New Author"
+      create: "Create"
     index:
-      title: "Authors List"
-    create_book:
-      create_success: "Create Success"
+      title: "All Authors"
+      new: "New Author"
+    author:
+      name: "Name of Author"
+      profile: "Profile of Author"
+      action: "Action"
+      delete: "Delete"
+      edit: "Edit"
+      confirm: "You sure?"
     edit:
-      title: "Author"
-      profile_updated: "Profile Updated"
+      title: "Update Author"
+      update: "Update"
       error: "This author could not be found"
+      permission: "You dont have permission to access"
     update:
-      update: "Author was updated successfully"
+      updated: "The author was updated successfully"
       error: "This author could not be found"
       select: "Please select parent of this author"
-    update: "Update"
+    destroy:
+      success: "The author was deleted successfully"
+      failed: "Failed! This author can't be deleted"
+      error: "This author could not be found"
+      permission: "You dont have permission to access"
   books:
-    new:
-      title: "Create Book"
-      create: "Create Book"
+    show:
+      error: "This book could not be found"
     index:
-      title: "Book"
-    create_book:
-      create_success: "Create Success"
-    edit:
-      title: "Book"
-      profile_updated: "Profile Updated"
-      error: "This book could not be found"
-    update: "Update"
-    update:
-      update: "Book was updated successfully"
-      error: "This book could not be found"
-      select: "Please select parent of this book"
+      title: "Borrow Books"
+    book_row:
+      borrow: "Borrow this book"
+      category: "Category: %{category}"
+      author: "Author: %{author}"
+      publisher: "Publisher: %{publisher}"
+      num_of_page: "Number of pages: %{num_of_page}"
+      num_of_book: "Number of books: %{num_of_book}"
+      status: "Status: %{status}"
+      status_in_stock: "In stock"
+      status_out_of_stock: "Out of stock"
   categories:
     show:
       error: "This category could not be found"
     new:
-      title: "Create Categorie"
-      select: "Please select parent of this category"
+      title: "Create New Category"
+      select: "Please select parent category for it"
+      create: "Create"
     index:
-      title: "Categories"
+      title: "All Categories"
+      new: "New Category"
+    category:
+      name: "Name of Category"
+      parent_category: "Parent Category"
+      action: "Action"
+      delete: "Delete"
+      edit: "Edit"
+      confirm: "You sure?"
     create:
-      create_success: "Category was created successfully"
+      success: "The category was created successfully"
     edit:
-      title: "Category"
-      profile_updated: "Profile Updated"
+      title: "Update Category"
       update: "Update"
       error: "This category could not be found"
+      permission: "You dont have permission to access"
+    form:
       select: "Please select parent of this category"
     update:
-      update: "Category was updated successfully"
+      update: "The category was updated successfully"
       error: "This category could not be found"
-
+    destroy:
+      success: "The author was deleted successfully"
+      failed: "Failed! This author could't be deleted"
+      permission: "You dont have permission to access"
   publishers:
     show:
       error: "This publisher could not be found"
     new:
-      title: "Create Publisher"
+      title: "Create New Publisher"
+      create: "Create"
     index:
-      title: "Publishers"
+      title: "All Publishers"
+      new: "New Publisher"
+    publisher:
+      name: "Name of Publisher"
+      address: "Address of Publisher"
+      action: "Action"
+      confirm: "You Sure?"
     create:
-      create_success: "Publisher was created successfully"
+      create_success: "The publisher was created successfully"
     edit:
-      title: "Publishers"
+      title: "Update Publisher"
       profile_updated: "Profile Updated"
-      edit_publisher: "Update Publisher"
       update: "Update"
       error: "This publisher could not be found"
+      permission: "You dont have permission to access"
     update:
-      updated: "Publisher was updated successfully"
+      updated: "The publisher was updated successfully"
       error: "This publisher could not be found"
+    destroy:
+      success: "The author was deleted successfully"
+      failed: "Failed! This author can't be deleted"
+      permission: "You dont have permission to access"
+  request_details:
+    create:
+      request_existed: "This book existed in your cart! Please update its quantity in your cart."
+      must_login: "You must login to use this feature"
+    update:
+      success: "The quantity of the book was updated successfully"
+      failed: "Failed! The quantity of the book can't be updated"
+      error: "This request detail couldn't be found"
+      blank: "Your cart is empty. Please add some book to your cart."
+      must_login: "You must login to use this feature"
+    destroy:
+      success: "The book was deleted successfully"
+      failed: "Failed! This book couldn't be deleted"
+      error: "This book couldn't be find"
+      must_login: "You must login to use this feature"
+  requests:
+    create:
+      error: "Your cart is empty. Please add some book to your cart."
+    show:
+      dont_exist: "Don't have this request detail!"
+      id: "Book_id"
+      name: "Name of book"
+      number: "Number of this book"
+      request_detail: "Detail of Request"
+    update:
+      created: "Your request was created successfully. Please view it in Manage Requests"
+      failed: "Failed!! Your request could't be created"
+    index:
+      no_request: "You don't have any request!"
+      title: "All requests"
+      request_id: "No."
+      name: "Name of customer"
+      from: "From day"
+      to: "To day"
+      total_book: "Total of books"
+      status: "Status of request"
+      day: "Day of borrow"
+      action: "Action"
+      note: "Note"
+    destroy:
+      success: "The request was deleted successfully"
+      failed: "Failed!! The request couldn't be deleted"
+      error: "The request couldn't be found"
+      permission: "You dont have permission to access"
+    accept_request:
+      success: "The request was accepted successfully"
+      failed: "The request couldn't be accepted"
+      error: "The request couldn't be found"
+      permission: "You dont have permission to access"
+      run_out: "Failed! The book isn't enough quantity to borrow!! Please deny this request."
+    deny_request:
+      success: "The request was denied successfully"
+      failed: "The request couldn't be denied"
+      error: "The request couldn't be found"
+      permission: "You dont have permission to access"
+    edit:
+      title: "Confirm time to borrow book"
+      button_confirm: "Confirm"
+    request:
+      accept: "Accept"
+      deny: "Deny"
+      confirm_accept: "You sure to accept?"
+      confirm_deny: "You sure to deny?"
+    request_user:
+      confirm: "You sure?"
+  carts:
+    cart_row:
+      update: "Update"
+      delete: "Delete"
+      confirm: "Are you sure you wish to delete the book \"%{name}\" from your cart?"
+    shopping_cart:
+      title: "Your cart"
+      empty_1: "Your cart is empty. Please "
+      empty_2: " and add some items to your cart."
+      confirm_button: "Confirm borrow"
+  admin:
+    books:
+      index:
+        title: "All Books"
+        new: "New Book"
+      form:
+        choose_author: "Please select author of this book"
+        choose_category: "Please select category of this book"
+        choose_publisher: "Please select publisher of this book"
+      new:
+        title: "Create New Book"
+        create: "Create"
+      create:
+        success: "The book was created successfully"
+      update:
+        update: "The book was updated successfully"
+      destroy:
+        success: "The book've been deleted successfully"
+        failed: "Failed! This book can't be deleted"
+        permission: "You dont have permission to access"
+      edit:
+        title: "Update Book"
+        update: "Update"
+        permission: "You dont have permission to access"
+      book:
+        name: "Name of Book"
+        author: "Name of Author"
+        publisher: "Name of Publisher"
+        action: "Action"
+        delete: "Delete"
+        edit: "Edit"
+        confirm: "You sure?"

@@ -7,6 +7,10 @@ class UsersController < ApplicationController
   def index
     @users = User.newest.paginate page: params[:page],
       per_page: Settings.paginate.per_page
+    respond_to do |format|
+      format.html
+      format.xls{send_data @users.to_xsl}
+    end
   end
 
   def show; end
@@ -33,6 +37,7 @@ class UsersController < ApplicationController
       flash[:success] = t ".success"
       redirect_to @user
     else
+      flash[:danger] = t ".failed"
       render :edit
     end
   end
@@ -62,9 +67,5 @@ class UsersController < ApplicationController
 
   def correct_user
     redirect_to root_path unless current_user?(@user)
-  end
-
-  def is_admin?
-    redirect_to root_path unless current_user.admin?
   end
 end

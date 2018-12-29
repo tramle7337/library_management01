@@ -1,0 +1,11 @@
+<%= form_for @request, url: deny_request_request_path, remote: true  do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+
+  <%= f.label :note %>
+  <%= f.text_area :note, class: "form-control" %>
+
+  <%= f.hidden_field :status, value: :deny %>
+  <%= f.hidden_field :id, value: current_request.id %>
+
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>

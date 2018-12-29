@@ -1,0 +1,18 @@
+<tr>
+  <td><%= link_to request.id, request_path(request.id) %></td>
+  <td><%= request.user.name %></td>
+  <td><%= request.from_day %></td>
+  <td><%= request.to_day %></td>
+  <td><%= request.total_book %></td>
+  <td id=<%= "status-request-#{request.id}" %> class="status"><%= request.status %></td>
+  <td><%= time_ago_in_words(request.created_at) %> ago</td>
+  <td id=<%= "action-request-#{request.id}" %> >
+    <% if current_user.admin? %>
+      <% if request.pending? %>
+        <%= link_to t(".accept"), accept_request_request_path(id: request.id), method: :get, data: {confirm: t(".confirm_accept")}, class: "btn btn-success inline" %>
+        <%= link_to t(".deny"), edit_request_path(id: request.id), remote: true, data: {confirm: t(".confirm_deny")}, class: "btn btn-danger inline"%>
+      <% end %>
+    <% end %>
+  </td>
+  <td id=<%= "note-request-#{request.id}" %>><%= request.note %></td>
+</tr>
