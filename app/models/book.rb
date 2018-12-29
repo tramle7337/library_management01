@@ -17,4 +17,8 @@ class Book < ApplicationRecord
   validates :year, presence: true
   validates :number_of_books, presence: true,
     length: {minimum: Settings.book.number.min_length}
+
+  scope :newest, ->{order created_at: :DESC}
+  scope :_page,
+    ->(page){paginate page: page, per_page: Settings.paginate.per_page}
 end
