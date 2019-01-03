@@ -42,4 +42,8 @@ class Book < ApplicationRecord
       end
     end
   end
+
+  def liked_by? user
+    likes.liked_by(user.id).present?
+  end
 end

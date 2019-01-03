@@ -158,6 +158,12 @@ en:
     error:
       one: "1 error"
       other: "%{count} errors"
+    like:
+      one: "1 like"
+      other: "%{count} likes"
+    comment:
+      one: "1 comment"
+      other: "%{count} comments"
   sessions:
     new:
       login: "Log In"
@@ -223,6 +229,23 @@ en:
       status: "Status: %{status}"
       status_in_stock: "In stock"
       status_out_of_stock: "Out of stock"
+      select: "Please select parent of this book"
+    like: "Like"
+    dislike: "Dislike"
+    comment:
+      comment_by: "Comment by"
+      post: "Posted"
+      late: "lated"
+    show:
+      submit: "Submit"
+  likes:
+    create:
+      success: "Like successfully"
+      failed: "Like failed"
+    destroy:
+      deleted: "Dislike successfully"
+      failed: "Dislike failed"
+      cant_find: "Cant find"
   categories:
     show:
       error: "This category could not be found"
@@ -405,3 +428,10 @@ en:
         delete: "Delete"
         edit: "Edit"
         confirm: "You sure?"
+  comments:
+    create:
+      create_success: "Commment successfully"
+    load_book:
+      error_message: "Commment failed"
+    form:
+      post_comment: "Post comments"

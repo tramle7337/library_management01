@@ -1,0 +1,10 @@
+<div class="count">
+  <a href="<%= book_comments_path(@book) %>">
+    <strong id="comments" class="stat">
+      <p> <%= t("shared.comment", count: @book.comments.size) %> </p>
+    </strong>
+  </a>
+  <div id="comments">
+    <%= render partial: "books/comment", collection: @book.comments.reverse %>
+  </div>
+</div>

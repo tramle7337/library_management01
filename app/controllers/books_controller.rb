@@ -7,7 +7,9 @@ class BooksController < ApplicationController
     @request_detail = current_request.request_details.build
   end
 
-  def show; end
+  def show
+    @comment = Comment.new
+  end
 
   private
 

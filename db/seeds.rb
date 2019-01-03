@@ -49,9 +49,9 @@ for i in 0..13 do
 end
 
 # Book
-id = [2,3,6,7,8,9]
+id = [2,3,6,7,8,9,4,5,4]
 for i in 2..(id.count) do
-  5.times do |n|
+  3.times do |n|
     name = Faker::Book.title
     content =Faker::Lorem.sentence(10)
     Book.create!(name: name, category_id: i, author_id: i, publisher_id: i,
