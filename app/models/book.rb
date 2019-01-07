@@ -24,4 +24,22 @@ class Book < ApplicationRecord
   scope :newest, ->{order created_at: :DESC}
   scope :_page,
     ->(page){paginate page: page, per_page: Settings.paginate.per_page}
+  scope :looking_for, -> search {
+    joins(:author).joins(:category).joins(:publisher).where("books.name LIKE ? or
+    authors.name LIKE ? or categories.name LIKE ? or publishers.name LIKE ?",
+    "%#{search.strip}%", "%#{search.strip}%", "%#{search.strip}%", "%#{search.strip}%") if search.present?
+  }
+  scope :search_book, -> search {
+    joins(:category).where("books.name LIKE ? or categories.name LIKE ?",
+    "%#{search.strip}%", "%#{search.strip}%") if search.present?
+  }
+
+  def self.to_xsl options = {}
+    CSV.generate(options) do |csv|
+      csv << column_names
+      all.each do |book|
+        csv << book.attributes.values_at(*column_names)
+      end
+    end
+  end
 end

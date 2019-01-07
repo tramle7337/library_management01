@@ -131,6 +131,8 @@ en:
       download: "Download"
       excel: "Excel"
       login: "Please login to access!"
+      search: "Enter user name"
+      button_search: "Search"
     new:
       sign_up: "Sign up"
       announce_new_html: "This will be a signup page for new users."
@@ -177,6 +179,8 @@ en:
     index:
       title: "All Authors"
       new: "New Author"
+      search: "Enter author name"
+      button_search: "Search"
     author:
       name: "Name of Author"
       profile: "Profile of Author"
@@ -203,6 +207,8 @@ en:
       error: "This book could not be found"
     index:
       title: "Borrow Books"
+      search: "Enter category, publisher,... to search"
+      button_search: "Search"
     book_row:
       borrow: "Borrow this book"
       category: "Category: %{category}"
@@ -223,6 +229,8 @@ en:
     index:
       title: "All Categories"
       new: "New Category"
+      search: "Enter category name"
+      button_search: "Search"
     category:
       name: "Name of Category"
       parent_category: "Parent Category"
@@ -255,6 +263,8 @@ en:
     index:
       title: "All Publishers"
       new: "New Publisher"
+      search: "Enter publisher name"
+      button_search: "Search"
     publisher:
       name: "Name of Publisher"
       address: "Address of Publisher"
@@ -355,6 +365,8 @@ en:
       index:
         title: "All Books"
         new: "New Book"
+        search: "Enter category name or book name"
+        button_search: "Search"
       form:
         choose_author: "Please select author of this book"
         choose_category: "Please select category of this book"
@@ -376,6 +388,7 @@ en:
         permission: "You dont have permission to access"
       book:
         name: "Name of Book"
+        category: "Category"
         author: "Name of Author"
         publisher: "Name of Publisher"
         action: "Action"

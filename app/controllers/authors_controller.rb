@@ -3,7 +3,12 @@ class AuthorsController < ApplicationController
   before_action :is_admin?, only: %i(edit destroy)
 
   def index
-    @authors = Author.alphabet._page params[:page]
+    @search_authors = Author.alphabet.search_author(params[:search])
+    @authors = @search_authors._page params[:page]
+    respond_to do |format|
+      format.html
+      format.xls{send_data @authors.to_xsl}
+    end
   end
 
   def new

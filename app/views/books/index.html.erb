@@ -1,8 +1,17 @@
 <%= render template: "static_pages/home" %>
 
-<h3 class="text-center"><b><%= t ".title" %></b></h3>
+<h3 class="text-center"><b><%= t ".title" %></b></h3><hr>
 
 <div class="container">
+  <div class="input-group search_inline">
+    <%= form_tag(books_path, method: :get) do %>
+      <%= text_field_tag :search, params[:search],
+        placeholder: t(".search"), class: "form-control search_input" %>
+      <%= submit_tag t(".button_search"), name: nil,
+        class: "btn btn-primary btn_search" %><i class="fa fa-search fa-fw"></i>
+    <% end %>
+  </div><hr>
+
   <div class="row">
     <% @books.each do |book| %>
       <%= render "book_row", book: book, request_detail: @request_detail %>

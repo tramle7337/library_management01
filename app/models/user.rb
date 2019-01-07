@@ -32,7 +32,21 @@ class User < ApplicationRecord
   enum role: {user: 0, admin: 1}
 
   scope :newest, ->{order created_at: :DESC}
-
+  scope :_page,
+    ->(page){paginate page: page, per_page: Settings.paginate.per_page}
+  # byebug
+  scope :search_admin, -> search {
+    where("users.name LIKE ? and users.role = ?",
+    "%#{search.strip}%", params[:role]) if search.present?
+  }
+  scope :search_user, -> search {
+    where("users.name LIKE ? and users.role = ?",
+    "%#{search.strip}%", 1) if search.present?
+  }
+  # scope :search_user, lambda { |search, role|
+  #   where("users.name LIKE ? and users.role = ?",
+  #   "%#{search.strip}%", "%#{role}%") if search.present?
+  # }
   def self.digest string
     cost = if ActiveModel::SecurePassword.min_cost
              BCrypt::Engine::MIN_COST
@@ -42,8 +56,8 @@ class User < ApplicationRecord
     BCrypt::Password.create(string, cost: cost)
   end
 
-  def self.to_xsl
-    CSV.generate do |csv|
+  def self.to_xsl options = {}
+    CSV.generate(options) do |csv|
       csv << column_names
       all.each do |user|
         csv << user.attributes.values_at(*column_names)

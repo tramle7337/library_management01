@@ -3,8 +3,13 @@ class PublishersController < ApplicationController
   before_action :is_admin?, only: %i(edit destroy)
 
   def index
-    @publishers = Publisher.paginate page: params[:page],
+    @search_categories = Publisher.search_publisher(params[:search])
+    @publishers = @search_categories.paginate page: params[:page],
       per_page: Settings.paginate.per_page
+    respond_to do |format|
+      format.html
+      format.xls{send_data @publishers.to_xsl}
+    end
   end
 
   def new

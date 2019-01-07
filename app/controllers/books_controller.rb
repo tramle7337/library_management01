@@ -3,7 +3,8 @@ class BooksController < ApplicationController
   before_action :load_category, only: :index
 
   def index
-    @books = Book.newest._page params[:page]
+    @search_books = Book.newest.looking_for(params[:search])
+    @books = @search_books._page params[:page]
     @request_detail = current_request.request_details.build
   end
 

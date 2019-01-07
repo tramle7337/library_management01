@@ -3,7 +3,12 @@ class CategoriesController < ApplicationController
   before_action :is_admin?, only: %i(edit destroy)
 
   def index
-    @categories = Category._page params[:page]
+    @search_categories = Category.newest.search_category(params[:search])
+    @categories = @search_categories._page params[:page]
+    respond_to do |format|
+      format.html
+      format.xls{send_data @categories.to_xsl}
+    end
   end
 
   def new
