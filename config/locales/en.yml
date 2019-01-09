@@ -32,6 +32,11 @@
 en:
   hello: "Hello world"
   base_title: "Library App"
+  date:
+    formats:
+      default: "%Y-%m-%d"
+      short: "%b %d"
+      long: "%B %d, %Y"
   layouts:
     application:
       title: "Library App"
@@ -80,6 +85,7 @@ en:
         author: "Author"
         category: "Category"
         publisher: "Publisher"
+        number_of_books: "Number of books"
       author:
         name: "Name of Author"
         profile: "Profile of Author"
@@ -92,8 +98,11 @@ en:
       request:
         from_day: "From day"
         to_day: "To day"
+        number_of_books: "Number of books"
       popup_deny:
         note: "Note1"
+      request_detail:
+        number_of_books: "Number of books"
   users:
     show:
       error: "This user could not be found"
@@ -126,6 +135,8 @@ en:
       download: "Download"
       excel: "Excel"
       login: "Please login to access!"
+      search: "Enter user name"
+      button_search: "Search"
     new:
       sign_up: "Sign up"
       announce_new_html: "This will be a signup page for new users."
@@ -172,6 +183,8 @@ en:
     index:
       title: "All Authors"
       new: "New Author"
+      search: "Enter author name"
+      button_search: "Search"
     author:
       name: "Name of Author"
       profile: "Profile of Author"
@@ -198,6 +211,8 @@ en:
       error: "This book could not be found"
     index:
       title: "Borrow Books"
+      search: "Enter category, publisher,... to search"
+      button_search: "Search"
     book_row:
       borrow: "Borrow this book"
       category: "Category: %{category}"
@@ -218,6 +233,8 @@ en:
     index:
       title: "All Categories"
       new: "New Category"
+      search: "Enter category name"
+      button_search: "Search"
     category:
       name: "Name of Category"
       parent_category: "Parent Category"
@@ -250,6 +267,8 @@ en:
     index:
       title: "All Publishers"
       new: "New Publisher"
+      search: "Enter publisher name"
+      button_search: "Search"
     publisher:
       name: "Name of Publisher"
       address: "Address of Publisher"
@@ -280,6 +299,7 @@ en:
       error: "This request detail couldn't be found"
       blank: "Your cart is empty. Please add some book to your cart."
       must_login: "You must login to use this feature"
+      run_out: "The book isn't enough to borrow. Please enter again!"
     destroy:
       success: "The book was deleted successfully"
       failed: "Failed! This book couldn't be deleted"
@@ -291,12 +311,15 @@ en:
     show:
       dont_exist: "Don't have this request detail!"
       id: "Book_id"
+      id_request: "Request_id"
       name: "Name of book"
-      number: "Number of this book"
+      number_book: "Number of books in stock"
       request_detail: "Detail of Request"
+      number_borrow: "Number of books to borrow"
     update:
       created: "Your request was created successfully. Please view it in Manage Requests"
       failed: "Failed!! Your request could't be created"
+      error: "The to_day must be larger the from_day"
     index:
       no_request: "You don't have any request!"
       title: "All requests"
@@ -350,6 +373,8 @@ en:
       index:
         title: "All Books"
         new: "New Book"
+        search: "Enter category name or book name"
+        button_search: "Search"
       form:
         choose_author: "Please select author of this book"
         choose_category: "Please select category of this book"
@@ -371,6 +396,7 @@ en:
         permission: "You dont have permission to access"
       book:
         name: "Name of Book"
+        category: "Category"
         author: "Name of Author"
         publisher: "Name of Publisher"
         action: "Action"

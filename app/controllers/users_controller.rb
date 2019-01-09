@@ -5,8 +5,9 @@ class UsersController < ApplicationController
   before_action :is_admin?, only: :destroy
 
   def index
-    @users = User.newest.paginate page: params[:page],
-      per_page: Settings.paginate.per_page
+    @users = User.newest.search_user(params[:search], params[:role])
+      ._page params[:page]
+
     respond_to do |format|
       format.html
       format.xls{send_data @users.to_xsl}

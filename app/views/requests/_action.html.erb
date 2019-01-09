@@ -1,0 +1,6 @@
+<% if current_user.admin? %>
+  <% if @request.pending? %>
+    <%= link_to t(".accept"), accept_request_request_path(id: @request.id), method: :get, data: {confirm: t(".confirm_accept")}, class: "btn btn-success inline" %>
+    <%= link_to t(".deny"), edit_request_path(id: @request.id), method: :get, data: {confirm: t(".confirm_deny")}, remote: true, class: "btn btn-danger inline", id: "deny" %>
+  <% end %>
+<% end %>

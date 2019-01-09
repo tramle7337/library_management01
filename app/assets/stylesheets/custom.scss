@@ -214,6 +214,11 @@ input {
   text-align: center;
 }
 
+.number_book1 {
+  color: $red;
+  text-align: center;
+}
+
 .number_book_th {
   text-align: center;
 }
@@ -265,4 +270,20 @@ input {
 
 .name_width {
   width: "40%";
+}
+
+.search_inline {
+  display: inline !important;
+}
+
+.search_input {
+  width: 30% !important;
+}
+
+.btn_search {
+  width: 10% !important;
+}
+
+.btn_auto {
+  width: auto !important;
 }

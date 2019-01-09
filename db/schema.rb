@@ -101,8 +101,8 @@ ActiveRecord::Schema.define(version: 2019_01_05_071729) do
 
   create_table "requests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
-    t.datetime "from_day", default: "2019-01-06 17:37:53"
-    t.datetime "to_day", default: "2019-01-13 17:37:53"
+    t.datetime "from_day", default: "2019-01-07 13:43:38"
+    t.datetime "to_day", default: "2019-01-14 13:43:38"
     t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -1,0 +1,18 @@
+<% current_user.requests.newest.each do |list| %>
+  <tr>
+    <td><%= link_to list.id, request_path(list.id) %>
+
+    <td><%= current_user.name %></td>
+    <td><%= l(list.from_day, format: :short) %></td>
+    <td><%= l(list.to_day, format: :short) %></td>
+    <td><%= list.total_book %></td>
+    <td class="status"><%= list.status %></td>
+    <td><%= l(list.created_at, format: :short) %></td>
+    <td>
+      <% if list.pending? %>
+        <%= link_to t(".delete"), list, method: :delete, data: {confirm: t(".confirm")}, class: "btn btn-danger" %>
+      <% end %>
+    </td>
+    <td><%= list.note %></td>
+  </tr>
+<% end %>
