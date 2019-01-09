@@ -1,10 +1,15 @@
 <% provide(:title, t(".title")) %>
 <h1><%= t(".title") %></h1>
 
+<div>
+  <%= t ".download" %>
+  <%= link_to t(".excel"), users_path(format: "xls") %>
+</div><hr>
+
 <%= will_paginate %>
 
 <ul class="users">
-   <%= render @users %>
+  <%= render "user" %>
 </ul>
 
 <%= will_paginate %>
