@@ -77,5 +77,8 @@ class RequestDetailsController < ApplicationController
 
   def find_request_detail
     @detail = RequestDetail.find_by book_id: params[:request_detail][:book_id]
+    return if @detail
+    flash[:danger] = t ".no_detail"
+    redirect_to root_path
   end
 end

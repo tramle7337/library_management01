@@ -242,6 +242,7 @@ en:
       delete: "Delete"
       edit: "Edit"
       confirm: "You sure?"
+      cant_find: "The category couldn't be found"
     create:
       success: "The category was created successfully"
     edit:
@@ -300,6 +301,7 @@ en:
       blank: "Your cart is empty. Please add some book to your cart."
       must_login: "You must login to use this feature"
       run_out: "The book isn't enough to borrow. Please enter again!"
+      no_detail: "There is no request detail!! Add more items to your cart."
     destroy:
       success: "The book was deleted successfully"
       failed: "Failed! This book couldn't be deleted"
