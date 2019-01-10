@@ -1,7 +1,7 @@
 class Admin::BooksController < ApplicationController
   before_action :load_book, except: %i(new create index)
   before_action :load_categories, only: %i(new edit index)
-  before_action :is_admin?, only: %i(edit destroy)
+  before_action :is_admin?, only: %i(new edit destroy)
 
   def index
     @books = Book.newest.search_book(params[:search])

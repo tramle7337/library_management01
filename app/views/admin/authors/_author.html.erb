@@ -4,7 +4,8 @@
       <thead>
         <tr>
           <th class="active" class="width30"><%= t ".name" %></th>
-          <th class="text-center active width40"><%= t ".profile" %></th>
+          <th class="text-center active" class="width40"><%= t ".profile" %></th>
+          <th class="text-right active"><%= t ".action" %></th>
         </tr>
       </thead>
     </table>
@@ -21,6 +22,11 @@
           </td>
           <td class="text-center width40">
             <%= author.profile %>
+          </td>
+          <td class="text-right">
+            <%= link_to t(".delete"), admin_author_path(author),
+              method: :delete, data: {confirm: t(".confirm")} %>
+              | <%= link_to t(".edit"), edit_admin_author_path(author) %>
           </td>
         </tr>
       </table>

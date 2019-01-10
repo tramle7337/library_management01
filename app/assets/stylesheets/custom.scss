@@ -166,18 +166,6 @@ aside {
   }
 }
 
-// table
-table {
-  width:90%;
-}
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-th, td {
-  padding: 15px;
-  text-align: left;
-}
 
 .gravatar {
   float: left;
@@ -325,3 +313,22 @@ input {
   width: auto !important;
 }
 
+.width30 {
+  width: 30% !important;
+}
+
+.width40 {
+  width: 40% !important;
+}
+
+.width25 {
+  width: 25% !important;
+}
+
+.width15 {
+  width: 15% !important;
+}
+
+.width24 {
+  width: 24% !important;
+}

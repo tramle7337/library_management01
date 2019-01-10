@@ -1,15 +1,7 @@
 <% provide :title, t(".title") %>
-<h1><%= t ".title" %></h1><hr>
+<h1><%= t ".title" %></h1>
 
-<%= link_to new_author_path, class: "btn btn-primary" do %>
-  <span class="glyphicon glyphicon-plus">&nbsp;<%= t(".new") %></span>
-<% end %>
 <hr>
-
-<div>
-  <%= t ".download" %>
-  <%= link_to t(".excel"), authors_path(format: "xls") %>
-</div></br>
 
 <div class="input-group search_inline">
   <%= form_tag(authors_path, method: :get) do %>

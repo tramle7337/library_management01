@@ -3,13 +3,24 @@
     <%= link_to t(".library_app"), root_path, id: "logo" %>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><%= link_to t(".book"), admin_books_path %></li>
-        <li><%= link_to t(".author"), authors_path %></li>
-        <li><%= link_to t(".publisher"), publishers_path %></li>
-        <li><%= link_to t(".category"), categories_path %></li>
         <% if logged_in? %>
-          <li><%= link_to t(".users"), users_path %></li>
-          <li><%= link_to t(".manage_request"), requests_path %></li>
+          <% if current_user.admin? %>
+            <li><%= link_to t(".book"), admin_books_path %></li>
+            <li><%= link_to t(".author"), admin_authors_path %></li>
+            <li><%= link_to t(".category"), admin_categories_path %></li>
+            <li><%= link_to t(".publisher"), publishers_path %></li>
+            <li><%= link_to t(".users"), users_path %></li>
+            <li><%= link_to t(".manage_request"), requests_path %></li>
+          <% else %>
+            <li><%= link_to t(".category"), categories_path %></li>
+            <li><%= link_to t(".author"), authors_path %></li>
+            <li><%= link_to t(".publisher"), publishers_path %></li>
+            <li><%= link_to t(".manage_request"), requests_path %></li>
+          <% end %>
+        <% else %>
+          <li><%= link_to t(".category"), categories_path %></li>
+          <li><%= link_to t(".author"), authors_path %></li>
+          <li><%= link_to t(".publisher"), publishers_path %></li>
         <% end %>
       </ul>
       <nav>
