@@ -1,0 +1,7 @@
+<div class="stats">
+  <a href="<%= book_likes_path(@book) %>">
+    <strong id="likes" class="stat">
+      <p> <%= t("shared.like", count: @book.likes.size) %> </p>
+    </strong>
+  </a>
+</div>

@@ -1,0 +1,12 @@
+<% provide(:title, @book.name) %>
+<div class="row">
+  <aside class="col-md-4">
+    <div class="col-md-8">
+      <span>
+        <% @book.likes.each do |like|%>
+          <%= find_users(like.user_id).name %>
+        <% end %>
+      </span>
+    </div>
+  </aside>
+</div>

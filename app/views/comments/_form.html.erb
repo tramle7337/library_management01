@@ -1,0 +1,7 @@
+<h3><%= t(".post_comment") %></h3>
+  <p>
+    <%= form_for @comment, url: book_comments_path(@book.id), method: :POST do |f| %>
+     <%= f.text_area :content %>
+    <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+  </p>
+<% end %>

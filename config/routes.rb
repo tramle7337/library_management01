@@ -22,11 +22,27 @@ Rails.application.routes.draw do
       patch "deny_request"
     end
   end
-  resources :request_details, only: [:create, :update, :destroy]
-  resource :cart, only: [:show]
 
   namespace :admin do
     resources :books
     resources :requests
+  end
+
+  resources :request_details, only: [:create, :update, :destroy]
+  resource :cart, only: [:show]
+
+  #routesLike_Comment
+  resources :users do
+    resources :likes
+    resources :create_comment
+  end
+
+  get "user_reviews/new"
+  get "user_reviews/edit"
+
+  resources :books do
+    resource :likes
+    resources :comments
+    resources :user_reviews
   end
 end

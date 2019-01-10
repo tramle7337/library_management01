@@ -1,10 +1,79 @@
 <% provide :title, @book.name %>
 <div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= @book.name %>
-      </h1>
+  <h1 class="name_book">
+    <b><%= @book.name %></b>
+  </h1>
+  <hr>
+  <hr>
+</div>
+<aside>
+<section class="user_info">
+      <div class="row_book">
+        <div class="col-sm-7">
+          <div class="book_detail">
+            <table>
+              <tr>
+                <th><%= t(".number_of_pages") %></th>
+                <td><%= @book.number_of_pages %></td>
+              </tr>
+              <tr>
+                <th><%= t(".year") %></th>
+                <td><%= @book.year %></td>
+              </tr>
+              <tr>
+                <th><%= t(".number_of_book") %></th>
+                <td><%= @book.number_of_books %></td>
+              </tr>
+              <tr>
+                <th><%= t(".categories") %></th>
+                <td><%= @book.category.name %></td>
+              </tr>
+              <tr>
+                <th><%= t(".author") %></th>
+                <td><%= @book.author.name %></td>
+              </tr>
+              <tr>
+                <th><%= t(".publisher") %></th>
+                <td><%= @book.publisher.name %></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      <div class="col-sm-5">
+        <h1><%= t(".content") %></h1>
+        <p><%= @book.content %></p>
+      </div>
     </section>
-  </aside>
+</aside>
+  <hr>
+  <hr>
+<div class="row">
+<aside>
+    <div class="like">
+        <% if @book.liked_by? current_user %>
+              <%= link_to book_likes_path(@book), method: :delete, class: "btn btn-success" do %>
+                <i class="glyphicon glyphicon-thumbs-up"></i>
+              <% end %>
+        <% else %>
+           <%= link_to book_likes_path(@book), method: :post, class: "btn btn-default" do %>
+            <i class="glyphicon glyphicon-thumbs-up"></i>
+          <% end %>
+      <% end %>
+      <p>
+        <b>
+        <%= t(".like") %>
+        <%= @book.likes.size %>
+        </b>
+      </p>
+    </div>
+</aside>
+<aside>
+  <section>
+      <% provide :button_text, t(".submit") %>
+    <%= render partial: "comments/form"%>
+  </section>
+  <section class="stats">
+    <%= render "shared/count" %>
+  </section>
+</aside>
 </div>
