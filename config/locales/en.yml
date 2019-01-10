@@ -37,6 +37,75 @@ en:
       default: "%Y-%m-%d"
       short: "%b %d"
       long: "%B %d, %Y"
+  devise:
+    confirmations:
+      new:
+        resend_confirm: "Resend confirmation instructions"
+    mailer:
+      confirmation_instructions:
+        welcome: "Welcome %{email}!"
+        confirm_link: "You can confirm your account email through the link below:"
+        confirm: "Confirm my account"
+        subject: "Confirmation instructions"
+      email_changed:
+        welcome: "Welcome %{email}!"
+        email_changed: "We're contacting you to notify you that your email is being changed to %{unconfirmed_email}."
+        email_has_changed: "We're contacting you to notify you that your email has been changed to %{email}."
+        subject: "Email Changed"
+      password_change:
+        hello: "Hello %{email}!"
+        password_has_changed: "We're contacting you to notify you that your password has been changed."
+        subject: "Password Changed"
+      reset_password_instructions:
+        hello: "Hello %{email}!"
+        requested: "Someone has requested a link to change your password. You can do this through the link below."
+        change_pass: "Change my password"
+        ignore_email: "If you didn't request this, please ignore this email."
+        access_link: "Your password won't change until you access the link above and create a new one."
+        subject: "Reset password instructions"
+      unlock_instructions:
+        hello: "Hello %{email}!"
+        account_locked: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
+        link_unlock: "Click the link below to unlock your account:"
+        unlock_account: "Unlock my account"
+        subject: "Unlock instructions"
+    passwords:
+      new:
+        forgot: "Forgot your password?"
+        send: "Send me reset password instructions"
+      edit:
+        change: "Change your password"
+        new: "New password"
+        character: "characters minimum"
+        confirm: "Confirm new password"
+    registrations:
+      new:
+        signup: "Sign up"
+        character: "characters minimum"
+      edit:
+        edit: "Edit"
+        leave_blank: "leave blank if you don't want to change it"
+        character: "characters minimum"
+        current_password: "we need your current password to confirm your changes"
+        update: "Update"
+        cancel: "Cancel my account"
+        unhappy: "Unhappy?"
+        sure: "Are you sure?"
+        back: "Back"
+    sessions:
+      new:
+        login: "Log in"
+    shared:
+      links:
+        login: "Log in"
+        signup: "Sign up"
+        forgot: "Forgot your password?"
+        not_receive_confirm: "Didn't receive confirmation instructions?"
+        not_receive_unlock: "Didn't receive unlock instructions?"
+        sign_in: "Sign in with %{omniauth}"
+    unlocks:
+      new:
+        resend_unlock: "Resend unlock instructions"
   layouts:
     application:
       title: "Library App"
@@ -335,6 +404,7 @@ en:
         new: "New Book"
         search: "Enter category name or book name"
         button_search: "Search"
+        permission: "You dont have permission to access"
       form:
         choose_author: "Please select author of this book"
         choose_category: "Please select category of this book"
@@ -370,6 +440,7 @@ en:
         new: "New Author"
         search: "Enter author name"
         button_search: "Search"
+        permission: "You dont have permission to access"
       create:
         success: "The author was created successfully"
       new:
@@ -403,6 +474,7 @@ en:
         new: "New Category"
         search: "Enter category name"
         button_search: "Search"
+        permission: "You dont have permission to access"
       new:
         title: "Create New Category"
         select: "Please select parent category for it"
@@ -448,6 +520,7 @@ en:
         new: "New Publisher"
         search: "Enter publisher name"
         button_search: "Search"
+        permission: "You dont have permission to access"
       publisher:
         name: "Name of Publisher"
         address: "Address of Publisher"
@@ -502,6 +575,7 @@ en:
         login: "Please login to access!"
         search: "Enter user name"
         button_search: "Search"
+        permission: "You dont have permission to access"
       new:
         sign_up: "Sign up"
         announce_new_html: "This will be a signup page for new users."
@@ -533,6 +607,7 @@ en:
         day: "Day of borrow"
         action: "Action"
         note: "Note"
+        permission: "You dont have permission to access"
       destroy:
         success: "The request was deleted successfully"
         failed: "Failed!! The request couldn't be deleted"

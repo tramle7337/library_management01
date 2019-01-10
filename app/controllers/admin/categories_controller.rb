@@ -1,6 +1,5 @@
-class Admin::CategoriesController < ApplicationController
+class Admin::CategoriesController < AdminController
   before_action :load_category, except: %i(new create index)
-  before_action :is_admin?, only: %i(new edit destroy)
 
   def index
     @categories = Category.newest.search_category(params[:search])

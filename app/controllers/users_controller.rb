@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
   before_action :load_user, except: %i(index new create)
-  before_action :logged_in_user, except: %i(show new create)
   before_action :correct_user, only: %i(edit update)
-  before_action :is_admin?, only: :destroy
+  before_action :authenticate_user!
 
   def index
     @users = User.newest.search_user(params[:search], params[:role])
