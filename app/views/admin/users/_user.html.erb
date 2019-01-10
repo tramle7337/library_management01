@@ -4,7 +4,8 @@
       <thead>
         <tr>
           <th class="active width30"><%= t ".avatar" %></th>
-          <th class="text-center active width35"><%= t ".name" %></th>
+          <th class="text-center active width50"><%= t ".name" %></th>
+          <th class="text-right active"><%= t ".action" %></th>
         </tr>
       </thead>
     </table>
@@ -19,8 +20,12 @@
           <td class="gravatar_size">
             <%= gravatar_for user, size: Settings.gravatar.small_size %>
           </td>
-          <td class="text-center name_width width50">
+          <td class="text-center name_width">
             <%= link_to user.name, user %>
+          </td>
+          <td class="text-right">
+            <%= link_to t(".delete"), admin_user_path(user), method: :delete,
+              data: {confirm: t(".confirm")} %>
           </td>
         </tr>
       </table>

@@ -5,6 +5,7 @@
         <tr>
           <th class="active width30"><%= t ".name" %></th>
           <th class="text-center active width40"><%= t ".address" %></th>
+          <th class="text-right active"><%= t ".action" %></th>
         </tr>
       </thead>
     </table>
@@ -21,6 +22,11 @@
           </td>
           <td class="text-center width40">
             <%= publisher.address %>
+          </td>
+          <td class="text-right">
+            <%= link_to t(".delete"), admin_publisher_path(publisher),
+              method: :delete, data: {confirm: t(".confirm")} %>
+              | <%= link_to t(".edit"), edit_admin_publisher_path(publisher) %>
           </td>
         </tr>
       </table>

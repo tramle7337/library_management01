@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class Admin::UsersController < ApplicationController
   before_action :load_user, except: %i(index new create)
   before_action :logged_in_user, except: %i(show new create)
   before_action :correct_user, only: %i(edit update)
@@ -12,8 +12,6 @@ class UsersController < ApplicationController
       format.xls{send_data @users.to_xsl}
     end
   end
-
-  def show; end
 
   def new
     @user = User.new
@@ -48,7 +46,7 @@ class UsersController < ApplicationController
     else
       flash[:danger] = t ".failed"
     end
-    redirect_to users_path
+    redirect_to admin_users_path
   end
 
   private
