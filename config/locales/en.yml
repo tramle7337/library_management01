@@ -506,6 +506,59 @@ en:
         sign_up: "Sign up"
         announce_new_html: "This will be a signup page for new users."
         create_account: "Create my account"
+    requests:
+      create:
+        error: "Your cart is empty. Please add some book to your cart."
+      show:
+        dont_exist: "Don't have this request detail!"
+        id: "Book_id"
+        id_request: "Request_id"
+        name: "Name of book"
+        number_book: "Number of books in stock"
+        request_detail: "Detail of Request"
+        number_borrow: "Number of books to borrow"
+      update:
+        created: "Your request was created successfully. Please view it in Manage Requests"
+        failed: "Failed!! Your request could't be created"
+        error: "The to_day must be larger the from_day"
+      index:
+        no_request: "You don't have any request!"
+        title: "All requests"
+        request_id: "No."
+        name: "Name of customer"
+        from: "From day"
+        to: "To day"
+        total_book: "Total of books"
+        status: "Status of request"
+        day: "Day of borrow"
+        action: "Action"
+        note: "Note"
+      destroy:
+        success: "The request was deleted successfully"
+        failed: "Failed!! The request couldn't be deleted"
+        error: "The request couldn't be found"
+        permission: "You dont have permission to access"
+      accept_request:
+        success: "The request was accepted successfully"
+        failed: "The request couldn't be accepted"
+        error: "The request couldn't be found"
+        permission: "You dont have permission to access"
+        run_out: "Failed! The book isn't enough quantity to borrow!! Please deny this request."
+      deny_request:
+        success: "The request was denied successfully"
+        failed: "The request couldn't be denied"
+        error: "The request couldn't be found"
+        permission: "You dont have permission to access"
+      edit:
+        title: "Confirm time to borrow book"
+        button_confirm: "Confirm"
+      request:
+        accept: "Accept"
+        deny: "Deny"
+        confirm_accept: "You sure to accept?"
+        confirm_deny: "You sure to deny?"
+      request_user:
+        confirm: "You sure?"
   comments:
     create:
       create_success: "Commment successfully"

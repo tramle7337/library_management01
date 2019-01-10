@@ -1,5 +1,7 @@
-class RequestsController < ApplicationController
+class Admin::RequestsController < ApplicationController
   before_action :load_request, except: %i(update index)
+  before_action :is_admin?, only: %i(accept_request deny_request)
+  before_action :check_quantity, only: %i(accept_request)
   before_action :check_time_borrow, only: %i(update)
   before_action :load_request_details, only: %i(index)
 
@@ -38,10 +40,31 @@ class RequestsController < ApplicationController
     redirect_to requests_path
   end
 
+  def accept_request
+    if @request.accept!
+      update_quantity
+      flash[:success] = t ".success"
+    else
+      flash[:danger] = t ".failed"
+    end
+    redirect_back fallback_location: root_path
+  end
+
   def edit
     respond_to do |format|
       format.js
       format.html
+    end
+  end
+
+  def deny_request
+    if @request.update_attributes deny_request_params
+      @success = t ".success"
+    else
+      flash[:danger] = t ".failed"
+    end
+    respond_to do |format|
+      format.js
     end
   end
 
@@ -60,6 +83,36 @@ class RequestsController < ApplicationController
 
   def request_params
     params.require(:request).permit :from_day, :to_day
+  end
+
+  def deny_request_params
+    params.require(:request).permit :note, :status
+  end
+
+  def check_quantity
+    flag = 0
+    @request.request_details.each do |request_detail|
+      @request.books.each do |book|
+        if request_detail.book_id == book.id && (book.number_of_books -
+          request_detail.number).negative?
+          flag -= 1
+        end
+      end
+    end
+    return if flag.zero?
+    flash[:danger] = t(".run_out")
+    redirect_to admin_requests_path
+  end
+
+  def update_quantity
+    @request.request_details.each do |request_detail|
+      @request.books.each do |book|
+        if request_detail.book_id == book.id
+          book.number_of_books -= request_detail.number
+          book.update_attribute(:number_of_books, book.number_of_books)
+        end
+      end
+    end
   end
 
   def check_time_borrow

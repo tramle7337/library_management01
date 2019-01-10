@@ -29,7 +29,12 @@ Rails.application.routes.draw do
     resources :categories
     resources :publishers
     resources :users
-    resources :requests
+    resources :requests do
+      member do
+        get "accept_request"
+        patch "deny_request"
+      end
+    end
   end
 
   resources :request_details, only: [:create, :update, :destroy]
