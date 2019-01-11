@@ -1,6 +1,6 @@
 class RequestDetailsController < ApplicationController
-  before_action :load_request, only: [:create, :update, :destroy]
-  before_action :load_request_detail, only: [:update, :destroy]
+  before_action :load_request, only: %i(create update destroy)
+  before_action :load_request_detail, only: %i(update destroy)
   before_action :check_quantity, only: :update
 
   def create
