@@ -21,8 +21,7 @@
     {prompt: t(".choose_author")} %>
 
   <%= f.label :category %>
-  <%= f.collection_select :category_id, get_categories(:name), :id, :name,
-    {prompt: t(".choose_category")} %>
+  <%= f.select :category_id, get_categories(:name), {prompt: t(".choose_category")} %>
 
   <%= f.label :publisher %>
   <%= f.collection_select :publisher_id, get_publishers(:name), :id, :name,

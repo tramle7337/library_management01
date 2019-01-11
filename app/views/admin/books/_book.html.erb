@@ -3,13 +3,11 @@
     <table class="table">
       <thead>
         <tr>
-          <th class="text-justify active" width="25%"><%= t ".name" %></th>
-          <th class="text-justify active" width="15%"><%= t ".category" %></th>
-          <th class="text-center active" width="25%"><%= t ".author" %></th>
-          <th class="text-center active" width="25%"><%= t ".publisher" %></th>
-          <% if current_user.admin? %>
-            <th class="text-right active"><%= t ".action" %></th>
-          <% end %>
+          <th class="text-justify active width25"><%= t ".name" %></th>
+          <th class="text-justify active width15"><%= t ".category" %></th>
+          <th class="text-center active width25"><%= t ".author" %></th>
+          <th class="text-center active width25"><%= t ".publisher" %></th>
+          <th class="text-right active"><%= t ".action" %></th>
         </tr>
       </thead>
     </table>
@@ -21,17 +19,15 @@
   <div class="col-md-12">
     <table class="table table-hover">
       <tr>
-        <td class="text-justify" width="25%"><%= link_to book.name, book %></td>
-        <td class="text-justify" width="15%"><%= link_to book.category.name, book %></td>
-        <td class="text-center" width="24%"><%= book.author.name %></td>
-        <td class="text-center" width="24%"><%= book.publisher.name %></td>
-        <% if current_user.admin? %>
-          <td class="text-right">
-            <%= link_to t(".delete"), admin_book_path(book), method: :delete,
+        <td class="text-justify width25"><%= link_to book.name, book %></td>
+        <td class="text-justify width15"><%= link_to book.category.name, book %></td>
+        <td class="text-center width24"><%= book.author.name %></td>
+        <td class="text-center width25"><%= book.publisher.name %></td>
+        <td class="text-right">
+          <%= link_to t(".delete"), admin_book_path(book), method: :delete,
             data: {confirm: t(".confirm")} %>
             | <%= link_to t(".edit"), edit_admin_book_path(book) %>
-          </td>
-        <% end %>
+        </td>
       </tr>
     </table>
   </div>

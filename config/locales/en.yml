@@ -181,11 +181,6 @@ en:
   authors:
     show:
       error: "This author could not be found"
-    create:
-      success: "The author was created successfully"
-    new:
-      title: "Create New Author"
-      create: "Create"
     index:
       title: "All Authors"
       new: "New Author"
@@ -198,20 +193,6 @@ en:
       delete: "Delete"
       edit: "Edit"
       confirm: "You sure?"
-    edit:
-      title: "Update Author"
-      update: "Update"
-      error: "This author could not be found"
-      permission: "You dont have permission to access"
-    update:
-      updated: "The author was updated successfully"
-      error: "This author could not be found"
-      select: "Please select parent of this author"
-    destroy:
-      success: "The author was deleted successfully"
-      failed: "Failed! This author can't be deleted"
-      error: "This author could not be found"
-      permission: "You dont have permission to access"
   books:
     show:
       error: "This book could not be found"
@@ -249,10 +230,6 @@ en:
   categories:
     show:
       error: "This category could not be found"
-    new:
-      title: "Create New Category"
-      select: "Please select parent category for it"
-      create: "Create"
     index:
       title: "All Categories"
       new: "New Category"
@@ -261,27 +238,6 @@ en:
     category:
       name: "Name of Category"
       parent_category: "Parent Category"
-      action: "Action"
-      delete: "Delete"
-      edit: "Edit"
-      confirm: "You sure?"
-      cant_find: "The category couldn't be found"
-    create:
-      success: "The category was created successfully"
-    edit:
-      title: "Update Category"
-      update: "Update"
-      error: "This category could not be found"
-      permission: "You dont have permission to access"
-    form:
-      select: "Please select parent of this category"
-    update:
-      update: "The category was updated successfully"
-      error: "This category could not be found"
-    destroy:
-      success: "The author was deleted successfully"
-      failed: "Failed! This author could't be deleted"
-      permission: "You dont have permission to access"
   publishers:
     show:
       error: "This publisher could not be found"
@@ -407,6 +363,7 @@ en:
       new:
         title: "Create New Book"
         create: "Create"
+        permission: "You dont have permission to access"
       create:
         success: "The book was created successfully"
       update:
@@ -428,6 +385,79 @@ en:
         delete: "Delete"
         edit: "Edit"
         confirm: "You sure?"
+    authors:
+      index:
+        title: "All Authors"
+        new: "New Author"
+        search: "Enter author name"
+        button_search: "Search"
+      create:
+        success: "The author was created successfully"
+      new:
+        title: "Create New Author"
+        create: "Create"
+        permission: "You dont have permission to access"
+      author:
+        name: "Name of Author"
+        profile: "Profile of Author"
+        action: "Action"
+        delete: "Delete"
+        edit: "Edit"
+        confirm: "You sure?"
+      edit:
+        title: "Update Author"
+        update: "Update"
+        error: "This author could not be found"
+        permission: "You dont have permission to access"
+      update:
+        updated: "The author was updated successfully"
+        error: "This author could not be found"
+        select: "Please select parent of this author"
+      destroy:
+        success: "The author was deleted successfully"
+        failed: "Failed! This author can't be deleted"
+        error: "This author could not be found"
+        permission: "You dont have permission to access"
+    categories:
+      index:
+        title: "All Categories"
+        new: "New Category"
+        search: "Enter category name"
+        button_search: "Search"
+      new:
+        title: "Create New Category"
+        select: "Please select parent category for it"
+        create: "Create"
+        permission: "You dont have permission to access"
+      create:
+        success: "The category was created successfully"
+      edit:
+        title: "Update Category"
+        update: "Update"
+        error: "This category could not be found"
+        permission: "You dont have permission to access"
+      form:
+        select: "Please select parent of this category"
+      update:
+        update: "The category was updated successfully"
+        error: "This category could not be found"
+      destroy:
+        success: "The author was deleted successfully"
+        failed: "Failed! This author could't be deleted"
+        permission: "You dont have permission to access"
+      category:
+        action: "Action"
+        delete: "Delete"
+        edit: "Edit"
+        confirm: "You sure?"
+        cant_find: "The category couldn't be found"
+        name: "Name of Category"
+        parent_category: "Parent Category"
+      category_row:
+        delete: "Delete"
+        edit: "Edit"
+        confirm: "You sure?"
+        cant_find: "The category couldn't be found"
   comments:
     create:
       create_success: "Commment successfully"
