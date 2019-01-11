@@ -1,6 +1,11 @@
 <% provide(:title, t(".title")) %>
 <h1><%= t(".title") %></h1>
 
+<div>
+  <%= t ".download" %>
+  <%= link_to t(".excel"), users_path(format: "xls") %>
+</div><hr>
+
 <div class="input-group search_inline">
   <%= form_tag users_path, method: :get do %>
     <%= text_field_tag :search, params[:search],

@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
   def is_admin?
     return if current_user.admin?
-    redirect_to root_path
     flash[:danger] = t ".permission"
+    redirect_to root_path
   end
 end

@@ -123,9 +123,6 @@ en:
       action: "Action"
       delete: "delete"
       confirm: "You sure?"
-    destroy:
-      success: "User was deleted successfully"
-      failed: "Failed! This user can't be deleted"
     index:
       admin: "Admin"
       user: "User"
@@ -241,9 +238,6 @@ en:
   publishers:
     show:
       error: "This publisher could not be found"
-    new:
-      title: "Create New Publisher"
-      create: "Create"
     index:
       title: "All Publishers"
       new: "New Publisher"
@@ -254,21 +248,6 @@ en:
       address: "Address of Publisher"
       action: "Action"
       confirm: "You Sure?"
-    create:
-      create_success: "The publisher was created successfully"
-    edit:
-      title: "Update Publisher"
-      profile_updated: "Profile Updated"
-      update: "Update"
-      error: "This publisher could not be found"
-      permission: "You dont have permission to access"
-    update:
-      updated: "The publisher was updated successfully"
-      error: "This publisher could not be found"
-    destroy:
-      success: "The author was deleted successfully"
-      failed: "Failed! This author can't be deleted"
-      permission: "You dont have permission to access"
   request_details:
     create:
       request_existed: "This book existed in your cart! Please update its quantity in your cart."
@@ -446,6 +425,7 @@ en:
         failed: "Failed! This author could't be deleted"
         permission: "You dont have permission to access"
       category:
+        name: "Name of Category"
         action: "Action"
         delete: "Delete"
         edit: "Edit"
@@ -458,6 +438,74 @@ en:
         edit: "Edit"
         confirm: "You sure?"
         cant_find: "The category couldn't be found"
+    publishers:
+      new:
+        title: "Create New Publisher"
+        create: "Create"
+        permission: "You dont have permission to access"
+      index:
+        title: "All Publishers"
+        new: "New Publisher"
+        search: "Enter publisher name"
+        button_search: "Search"
+      publisher:
+        name: "Name of Publisher"
+        address: "Address of Publisher"
+        action: "Action"
+        confirm: "You Sure?"
+      create:
+        create_success: "The publisher was created successfully"
+      edit:
+        title: "Update Publisher"
+        update: "Update"
+        error: "This publisher could not be found"
+        permission: "You dont have permission to access"
+      update:
+        updated: "The publisher was updated successfully"
+        error: "This publisher could not be found"
+      destroy:
+        success: "The publisher was deleted successfully"
+        failed: "Failed! This publisher can't be deleted"
+        permission: "You dont have permission to access"
+    users:
+      show:
+        error: "This user could not be found"
+      create:
+        welcome: "Welcome to Library App"
+      update:
+        success: "Profile was updated successfully"
+        failed: "Failed! Profile can't be updated"
+      edit:
+        title: "Edit user"
+        login: "Please log in."
+        update: "Update your profile"
+        save: "Save changes"
+        change: "change"
+      user:
+        avatar: Avatar
+        name: "Name of User"
+        action: "Action"
+        delete: "delete"
+        confirm: "You sure?"
+      destroy:
+        success: "User was deleted successfully"
+        failed: "Failed! This user can't be deleted"
+        permission: "You dont have permission to access"
+      index:
+        admin: "Admin"
+        user: "User"
+        all: "All"
+        search: "Search"
+        title: "All users"
+        download: "Download"
+        excel: "Excel"
+        login: "Please login to access!"
+        search: "Enter user name"
+        button_search: "Search"
+      new:
+        sign_up: "Sign up"
+        announce_new_html: "This will be a signup page for new users."
+        create_account: "Create my account"
   comments:
     create:
       create_success: "Commment successfully"
