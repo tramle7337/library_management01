@@ -1,4 +1,5 @@
 class RequestDetailsController < ApplicationController
+  load_and_authorize_resource
   before_action :load_request, only: %i(create update destroy)
   before_action :load_request_detail, only: %i(update destroy)
   before_action :check_quantity, only: :update

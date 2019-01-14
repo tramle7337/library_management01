@@ -1,4 +1,5 @@
 class Admin::AuthorsController < AdminController
+  load_and_authorize_resource
   before_action :load_author, except: %i(new create index)
 
   def index
