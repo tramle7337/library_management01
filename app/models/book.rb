@@ -21,6 +21,8 @@ class Book < ApplicationRecord
       only_integer: true, greater_than: Settings.book.num_book.min_num
     }
 
+  acts_as_paranoid
+
   scope :newest, ->{order created_at: :DESC}
   scope :_page,
     ->(page){paginate page: page, per_page: Settings.paginate.per_page}

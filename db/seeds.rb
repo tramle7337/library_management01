@@ -37,10 +37,10 @@ end
 end
 
 # Category
-name= ["Sach Tieng Viet", "Van hoc", "Tieu thuyet", "Tinh cam/Lang man",
+name= ["Sach Tieng Viet", "Van hoc", "Tieu thuyet", "Tinh cam",
   "Kinh te", "Ngan Hang", "Marketing",
-  "Sach Tieng Anh", "Van hoc", "Tieu thuyet", "Tinh cam/Lang man",
-  "Kinh te", "Ngan Hang", "Marketing"]
+  "Sach Tieng Anh", "Chung Chi", "TOEIC", "IELTS",
+  "Du hoc", "Trong nuoc", "Ngoai nuoc"]
 parent_id = ["", 1, 2, 2, 1, 5, 5, "", 8, 9, 9, 8, 12, 12]
 path = ["1-", "1-2-", "1-2-3-", "1-2-4-", "1-5-", "1-5-6-", "1-5-7-", "8-",
   "8-9-", "8-9-10-", "8-9-11-", "8-12-", "8-12-13-", "8-12-14-"]
@@ -49,8 +49,8 @@ for i in 0..13 do
 end
 
 # Book
-id = [2,3,6,7,8,9,4,5,4]
-for i in 2..(id.count) do
+# id = [2,3,6,7,8,9,4,5,4]
+for i in 1..10 do
   3.times do |n|
     name = Faker::Book.title
     content =Faker::Lorem.sentence(10)

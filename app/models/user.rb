@@ -26,6 +26,8 @@ class User < ApplicationRecord
     length: {minimum: Settings.user.pass.min_length},
     allow_nil: true
 
+  acts_as_paranoid
+
   before_save{email.downcase!}
 
   enum role: {user: 0, admin: 1}
