@@ -13,15 +13,15 @@
             <li><%= link_to t(".my_requests"), requests_path %></li>
             <li><%= link_to t(".manage_request"), admin_requests_path %></li>
           <% else %>
-            <li><%= link_to t(".category"), categories_path %></li>
             <li><%= link_to t(".author"), authors_path %></li>
+            <li><%= link_to t(".category"), categories_path %></li>
             <li><%= link_to t(".publisher"), publishers_path %></li>
             <li><%= link_to t(".users"), users_path %></li>
             <li><%= link_to t(".my_requests"), requests_path %></li>
           <% end %>
         <% else %>
-          <li><%= link_to t(".category"), categories_path %></li>
           <li><%= link_to t(".author"), authors_path %></li>
+          <li><%= link_to t(".category"), categories_path %></li>
           <li><%= link_to t(".publisher"), publishers_path %></li>
         <% end %>
       </ul>

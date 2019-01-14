@@ -60,7 +60,7 @@ class RequestsController < ApplicationController
   end
 
   def request_params
-    params.require(:request).permit :from_day, :to_day
+    params.require(:request).permit :from_day, :to_day, :note_user
   end
 
   def check_time_borrow

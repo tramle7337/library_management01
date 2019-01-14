@@ -170,6 +170,7 @@ en:
         from_day: "From day"
         to_day: "To day"
         number_of_books: "Number of books"
+        note: "Note message for librarian"
       popup_deny:
         note: "Note1"
       request_detail:
@@ -363,7 +364,8 @@ en:
       status: "Status of request"
       day: "Day of borrow"
       action: "Action"
-      note: "Note"
+      note: "Note of Admin"
+      note_user: "Note of User"
     destroy:
       success: "The request was deleted successfully"
       failed: "Failed!! The request couldn't be deleted"
@@ -497,7 +499,7 @@ en:
         update: "The category was updated successfully"
         error: "This category could not be found"
       destroy:
-        success: "The author was deleted successfully"
+        success: "The category was deleted successfully"
         failed: "Failed! This author could't be deleted"
         permission: "You dont have permission to access"
       category:
@@ -610,7 +612,8 @@ en:
         status: "Status of request"
         day: "Day of borrow"
         action: "Action"
-        note: "Note"
+        note: "Note_Admin"
+        note_user: "Note of User"
         permission: "You dont have permission to access"
       destroy:
         success: "The request was deleted successfully"

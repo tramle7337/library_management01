@@ -7,4 +7,18 @@ module CategoriesHelper
       redirect_to categories_path
     end
   end
+
+  def get_categories name
+    Category.order(name).map{|category| [convert_name(category), category.id]}
+  end
+
+  private
+
+  def convert_name category
+    if category.parent_id.present?
+      "#{category.category.name}/#{category.name}"
+    else
+      category.name
+    end
+  end
 end

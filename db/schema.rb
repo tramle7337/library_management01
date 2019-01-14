@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_11_022044) do
+ActiveRecord::Schema.define(version: 2019_01_16_214259) do
 
   create_table "authors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2019_01_11_022044) do
     t.string "avatar"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
   end
 
   create_table "books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -31,6 +32,7 @@ ActiveRecord::Schema.define(version: 2019_01_11_022044) do
     t.integer "number_of_books"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
     t.index ["author_id"], name: "index_books_on_author_id"
     t.index ["category_id"], name: "index_books_on_category_id"
     t.index ["publisher_id"], name: "index_books_on_publisher_id"
@@ -42,6 +44,7 @@ ActiveRecord::Schema.define(version: 2019_01_11_022044) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "path"
+    t.datetime "deleted_at"
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -77,6 +80,7 @@ ActiveRecord::Schema.define(version: 2019_01_11_022044) do
     t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
   end
 
   create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -95,18 +99,21 @@ ActiveRecord::Schema.define(version: 2019_01_11_022044) do
     t.integer "number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
     t.index ["book_id"], name: "index_request_details_on_book_id"
     t.index ["request_id"], name: "index_request_details_on_request_id"
   end
 
   create_table "requests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
-    t.datetime "from_day", default: "2019-01-12 16:11:24"
-    t.datetime "to_day", default: "2019-01-19 16:11:24"
+    t.datetime "from_day", default: "2019-01-17 01:02:33"
+    t.datetime "to_day", default: "2019-01-24 01:02:33"
     t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "note"
+    t.datetime "deleted_at"
+    t.string "note_user"
     t.index ["user_id"], name: "index_requests_on_user_id"
   end
 
@@ -131,6 +138,7 @@ ActiveRecord::Schema.define(version: 2019_01_11_022044) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.datetime "deleted_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

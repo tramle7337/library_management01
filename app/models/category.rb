@@ -1,5 +1,5 @@
 class Category < ApplicationRecord
-  has_many :books
+  has_many :books, dependent: :destroy
   has_many :parents, class_name: Category.name,
     foreign_key: :parent_id, dependent: :destroy
   belongs_to :category, class_name: Category.name, foreign_key: :parent_id,
@@ -7,6 +7,8 @@ class Category < ApplicationRecord
 
   validates :name, presence: true,
     length: {maximum: Settings.category.name.max_length}
+
+  acts_as_paranoid
 
   scope :newest, ->{order created_at: :DESC}
   scope :alphabet, ->{order name: :DESC}

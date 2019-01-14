@@ -6,6 +6,8 @@ class Request < ApplicationRecord
   validates :from_day, presence: true
   validates :to_day, presence: true
 
+  acts_as_paranoid
+
   before_create :set_day
 
   enum status: {pending: 0, accept: 1, deny: 2}

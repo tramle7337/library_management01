@@ -5,5 +5,7 @@ class RequestDetail < ApplicationRecord
   validates :number, presence: true,
     numericality: {only_integer: true, greater_than: 0}
 
+  acts_as_paranoid
+
   scope :load_request_details, ->(id){where(request_id: id)}
 end
