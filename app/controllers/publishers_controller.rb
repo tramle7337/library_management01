@@ -2,8 +2,8 @@ class PublishersController < ApplicationController
   before_action :load_publisher, only: :show
 
   def index
-    @publishers = Publisher.search_publisher(params[:search])
-      ._page params[:page]
+    @q = Publisher.ransack params[:q]
+    @publishers = @q.result._page params[:page]
     respond_to do |format|
       format.html
       format.xls{send_data @publishers.to_xsl}

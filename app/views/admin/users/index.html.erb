@@ -7,15 +7,17 @@
 </div><hr>
 
 <div class="input-group search_inline">
-  <%= form_tag users_path, method: :get do %>
-    <%= text_field_tag :search, params[:search],
-      placeholder: t(".search"), class: "form-control search_input" %>
-      <%= label_tag :admin %>
-      <%= radio_button_tag :role, 1, true, class: "btn_auto" %>
-      <%= label_tag :user %>
-      <%= radio_button_tag :role, 0, true, class: "btn_auto" %>
-    <%= submit_tag t(".button_search"), name: nil,
-      class: "btn btn-primary btn_search btn_auto" %><i class="fa fa-search fa-fw"></i>
+  <%= search_form_for @q, url: admin_users_path do |f| %>
+    <%= f.search_field :name_cont, class: "form-control search_input",
+      placeholder: t(".search") %>
+
+    <%= f.label t(".admin") %>
+    <%= f.radio_button :role_eq, 1, class: "btn_auto" %>
+
+    <%= f.label t(".user") %>
+    <%= f.radio_button :role_eq, 0, class: "btn_auto" %>
+
+    <%= f.submit t(".button_search"), class: "btn btn-primary btn_search" %>
   <% end %>
 </div>
 </br><hr>
@@ -23,4 +25,3 @@
 <ul class="users">
   <%= render "user" %>
 </ul>
-
