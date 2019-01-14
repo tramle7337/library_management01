@@ -1,6 +1,5 @@
-class Admin::RequestsController < ApplicationController
+class Admin::RequestsController < AdminController
   before_action :load_request, except: %i(update index)
-  before_action :is_admin?, only: %i(accept_request deny_request)
   before_action :check_quantity, only: %i(accept_request)
   before_action :check_time_borrow, only: %i(update)
   before_action :load_request_details, only: %i(index)

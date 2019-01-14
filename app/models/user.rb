@@ -26,11 +26,14 @@ class User < ApplicationRecord
     length: {minimum: Settings.user.pass.min_length},
     allow_nil: true
 
-  has_secure_password
-
   before_save{email.downcase!}
 
   enum role: {user: 0, admin: 1}
+
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+    :recoverable, :rememberable, :validatable
 
   scope :newest, ->{order created_at: :DESC}
   scope :_page,
@@ -39,15 +42,6 @@ class User < ApplicationRecord
     where("users.name LIKE ? and users.role = ?",
     "%#{search.strip}%", role) if search.present?
   }
-
-  def self.digest string
-    cost = if ActiveModel::SecurePassword.min_cost
-             BCrypt::Engine::MIN_COST
-           else
-             BCrypt::Engine.cost
-           end
-    BCrypt::Password.create(string, cost: cost)
-  end
 
   def self.to_xsl options = {}
     CSV.generate(options) do |csv|

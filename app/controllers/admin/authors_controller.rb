@@ -1,6 +1,5 @@
-class Admin::AuthorsController < ApplicationController
+class Admin::AuthorsController < AdminController
   before_action :load_author, except: %i(new create index)
-  before_action :is_admin?, only: %i(new edit destroy)
 
   def index
     @authors = Author.alphabet.search_author(params[:search])
