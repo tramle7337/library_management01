@@ -2,8 +2,8 @@ class Admin::AuthorsController < AdminController
   before_action :load_author, except: %i(new create index)
 
   def index
-    @authors = Author.alphabet.search_author(params[:search])
-      ._page params[:page]
+    @q = Author.ransack params[:q]
+    @authors = @q.result.alphabet._page params[:page]
     respond_to do |format|
       format.html
       format.xls{send_data @authors.to_xsl}

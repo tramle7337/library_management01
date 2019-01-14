@@ -3,7 +3,7 @@
     <table class="table">
       <thead>
         <tr>
-          <th class="active width30"><%= t ".name" %></th>
+          <th class="active width30"><%= sort_link(@q, :name, t(".name")) %></th>
           <th class="text-center active width40"><%= t ".parent_category" %></th>
         </tr>
       </thead>

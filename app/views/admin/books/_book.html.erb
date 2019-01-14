@@ -3,10 +3,10 @@
     <table class="table">
       <thead>
         <tr>
-          <th class="text-justify active width25"><%= t ".name" %></th>
-          <th class="text-justify active width15"><%= t ".category" %></th>
-          <th class="text-center active width25"><%= t ".author" %></th>
-          <th class="text-center active width25"><%= t ".publisher" %></th>
+          <th class="text-justify active width25"><%= sort_link(@q, :name, t(".name")) %></th>
+          <th class="text-justify active width15"><%= sort_link(@q, :category_name, t(".category")) %></th>
+          <th class="text-center active width25"><%= sort_link(@q, :author_name, t(".author")) %></th>
+          <th class="text-center active width25"><%= sort_link(@q, :publisher_name, t(".publisher")) %></th>
           <th class="text-right active"><%= t ".action" %></th>
         </tr>
       </thead>
