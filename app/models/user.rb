@@ -38,10 +38,6 @@ class User < ApplicationRecord
   scope :newest, ->{order created_at: :DESC}
   scope :_page,
     ->(page){paginate page: page, per_page: Settings.paginate.per_page}
-  scope :search_user, -> (search, role) {
-    where("users.name LIKE ? and users.role = ?",
-    "%#{search.strip}%", role) if search.present?
-  }
 
   def self.to_xsl options = {}
     CSV.generate(options) do |csv|

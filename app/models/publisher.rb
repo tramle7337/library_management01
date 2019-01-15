@@ -8,10 +8,6 @@ class Publisher < ApplicationRecord
 
   scope :_page,
     ->(page){paginate page: page, per_page: Settings.paginate.per_page}
-  scope :search_publisher, -> search {
-    where("publishers.name LIKE ?",
-    "%#{search.strip}%") if search.present?
-  }
 
   def self.to_xsl options = {}
     CSV.generate(options) do |csv|

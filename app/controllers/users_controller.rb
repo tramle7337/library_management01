@@ -4,8 +4,8 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @users = User.newest.search_user(params[:search], params[:role])
-      ._page params[:page]
+    @q = User.ransack params[:q]
+    @users = @q.result.newest._page params[:page]
     respond_to do |format|
       format.html
       format.xls{send_data @users.to_xsl}

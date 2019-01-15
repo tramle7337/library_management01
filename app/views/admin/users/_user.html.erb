@@ -4,7 +4,7 @@
       <thead>
         <tr>
           <th class="active width30"><%= t ".avatar" %></th>
-          <th class="text-center active width50"><%= t ".name" %></th>
+          <th class="text-center active width50"><%= sort_link(@q, :name, t(".name")) %></th>
           <th class="text-right active"><%= t ".action" %></th>
         </tr>
       </thead>
