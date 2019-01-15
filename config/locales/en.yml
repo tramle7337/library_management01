@@ -266,6 +266,7 @@ en:
       title: "Borrow Books"
       search: "Enter category, publisher,... to search"
       button_search: "Search"
+      select: "Select category you want to search"
     book_row:
       borrow: "Borrow this book"
       category: "Category: %{category}"
@@ -441,6 +442,7 @@ en:
         search: "Enter author name"
         button_search: "Search"
         permission: "You dont have permission to access"
+        search: "Enter author name"
       create:
         success: "The author was created successfully"
       new:

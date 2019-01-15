@@ -24,15 +24,8 @@ class Book < ApplicationRecord
   scope :newest, ->{order created_at: :DESC}
   scope :_page,
     ->(page){paginate page: page, per_page: Settings.paginate.per_page}
-  scope :looking_for, lambda{|search|
-    joins(:author).joins(:category).joins(:publisher).where("books.name LIKE ? or
-    authors.name LIKE ? or categories.name LIKE ? or publishers.name LIKE ?",
-    "%#{search.strip}%", "%#{search.strip}%", "%#{search.strip}%", "%#{search.strip}%") if search.present?
-  }
-  scope :search_book, lambda{|search|
-    joins(:category).where("books.name LIKE ? or categories.name LIKE ?",
-    "%#{search.strip}%", "%#{search.strip}%") if search.present?
-  }
+
+  ransack_alias :book_search, :name_or_author_name_or_category_name_or_publisher_name
 
   def self.to_xsl options = {}
     CSV.generate(options) do |csv|

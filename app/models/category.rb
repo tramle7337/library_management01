@@ -12,9 +12,6 @@ class Category < ApplicationRecord
   scope :alphabet, ->{order name: :DESC}
   scope :_page,
     ->(page){paginate page: page, per_page: Settings.paginate.per_page}
-  scope :search_category, lambda{|search|
-    where("categories.name LIKE ?", "%#{search.strip}%") if search.present?
-  }
 
   def self.to_xsl options = {}
     CSV.generate(options) do |csv|

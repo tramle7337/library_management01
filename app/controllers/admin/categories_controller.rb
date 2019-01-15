@@ -2,8 +2,8 @@ class Admin::CategoriesController < AdminController
   before_action :load_category, except: %i(new create index)
 
   def index
-    @categories = Category.newest.search_category(params[:search])
-      ._page params[:page]
+    @q = Category.ransack params[:q]
+    @categories = @q.result.newest._page params[:page]
     respond_to do |format|
       format.html
       format.xls{send_data @categories.to_xsl}
