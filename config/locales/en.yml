@@ -30,6 +30,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  auth_exception: "Access is Denied"
   hello: "Hello world"
   base_title: "Library App"
   date:
@@ -124,6 +125,7 @@ en:
       publisher: "Publishers"
       category: "Categories"
       manage_request: "Manage Requests"
+      my_requests: "My Requests"
     footer:
       about: "About"
       contact: "Contact"

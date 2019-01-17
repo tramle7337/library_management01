@@ -2,7 +2,7 @@
 <h1><%= t ".title" %></h1><hr>
 
 <div class="input-group search_inline">
-  <%= search_form_for @q, url: admin_categories_path do |f| %>
+  <%= search_form_for @q, url: categories_path do |f| %>
     <%= f.search_field :name_cont, class: "form-control search_input",
       placeholder: t(".search") %>
 

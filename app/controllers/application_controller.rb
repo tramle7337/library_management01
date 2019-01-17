@@ -4,6 +4,11 @@ class ApplicationController < ActionController::Base
 
   include RequestsHelper
 
+  rescue_from CanCan::AccessDenied do |_exception|
+    flash[:warning] = t "auth_exception"
+    redirect_to root_path
+  end
+
   private
 
   def is_admin?

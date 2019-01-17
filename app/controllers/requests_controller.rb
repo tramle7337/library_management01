@@ -1,4 +1,5 @@
 class RequestsController < ApplicationController
+  load_and_authorize_resource
   before_action :load_request, except: %i(update index)
   before_action :check_time_borrow, only: %i(update)
   before_action :load_request_details, only: %i(index)
